@@ -1,0 +1,43 @@
+
+What is MySQL, and how does it differ from other databases?
+What are the different ways to connect to a MySQL database?
+What is the difference between a database and a table?
+What are the different data types available in MySQL?
+What is a primary key, and why is it important?
+How does a foreign key help in maintaining database relationships?
+What is the purpose of constraints like NOT NULL, UNIQUE, and CHECK?
+How do you retrieve all records from a table?
+What is the purpose of the WHERE clause in SQL?
+How can you sort the results of a query in ascending or descending order?
+What is the use of the LIMIT clause in a SELECT query?
+How do you filter data based on multiple conditions?
+How do you insert a new row into a table?
+What is the syntax for updating existing records in a table?
+How do you delete specific records from a table?
+What is the difference between DELETE and TRUNCATE?
+How can you insert multiple rows at once into a table?
+What is the difference between INNER JOIN and LEFT JOIN?
+How do you retrieve records from two tables that have a common column?
+What is a SELF JOIN, and when is it used?
+What happens when you use a FULL JOIN in MySQL?
+How can you join more than two tables in a single query?
+What is the purpose of the COUNT() function in MySQL?
+How do you use the GROUP BY clause in an SQL query?
+What is the difference between GROUP BY and ORDER BY?
+How do you filter grouped results using the HAVING clause?
+What is the use of aggregate functions like SUM(), AVG(), and MAX()?
+What is a subquery, and where can it be used?
+How do correlated subqueries differ from non-correlated ones?
+What is the purpose of the EXISTS clause in subqueries?
+Can a subquery return multiple values? If so, how can you handle it?
+How do you use a subquery inside a WHERE clause?
+How do you concatenate two strings in MySQL?
+What function can you use to extract a part of a string?
+How do you format a date in MySQL?
+What is the purpose of the REPLACE() function in SQL?
+How do you round a number to two decimal places in MySQL?
+What is a stored procedure, and how do you create one?
+How do you pass parameters to a stored procedure?
+What is the difference between a stored procedure and a function?
+How can you return a value from a stored function?
+How do you execute a stored procedure in MySQL?

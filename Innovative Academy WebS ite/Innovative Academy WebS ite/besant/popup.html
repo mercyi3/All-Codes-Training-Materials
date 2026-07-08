@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Demo</title>
+</head>
+<style>
+    /* popup */
+    
+.login-popup{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1099;
+	background-color:rgba(0,0,0,0.6);
+	visibility: hidden;
+	opacity: 0;
+	transition: all 1s ease;
+    
+}
+.login-popup.show{
+	visibility:visible;
+	opacity: 1;
+}
+.login-popup .box{
+	background-color:#ffffff;
+	width: 450px;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	/* display: flex; */
+	flex-wrap: wrap;
+	opacity: 0;
+	margin-left: 50px;
+	transition: all 1s ease;
+    border-radius: 10px;
+}
+.login-popup.show .box{
+	opacity: 1;
+	margin-left: 0;
+}
+.hero-big{
+    animation: zoomInOut 7s linear infinite;
+}
+
+@keyframes zoomInOut{
+	0%,100%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.1);
+	}
+}
+.login-popup .box .form{
+
+	padding: 10px 30px;
+}
+.login-popup .form h2{
+	text-align: center;
+	color: rgb(61, 61, 61);
+	padding: 2px 5px;
+	font-family: Roboto, Tahoma, sans-serif;
+}
+
+.login-popup .box .form .btn{
+	width: 100%;
+	background-color: #ff811b;
+	height: 35px;
+	border:none;
+	border-radius: 5px;
+	font-size: 14px;
+	text-transform: uppercase;
+	color:#ffffff;
+	cursor: pointer;
+}
+.login-popup .box .form .btn:focus{
+	outline: none;
+}
+.login-popup .box .form .close{
+	position: absolute;
+	right: 10px;
+	top:0px;
+	font-size: 30px;
+	cursor: pointer;
+}
+.login-popup .form .off-area{
+
+	display: none;
+}
+
+.login-popup .box .form p{
+    text-align: center;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+	.login-popup .box{
+		width: calc(100% - 30px);
+	}
+	.login-popup .box .img-area{
+		display: none;
+	}
+	.login-popup .form .off-area{
+		display: block;
+	}
+	.login-popup .box .form{
+		flex: 0 0 100%;
+        max-width: 100%;
+	}
+}
+
+.login-popup .form .btn{
+	font-weight: bold;
+    font-family: Roboto, Tahoma, sans-serif ;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.form-group input {
+    background-color: #ecf2f7b5;
+        outline: 0;
+        border: 1.5px solid #e3e5f5;
+        box-shadow: none;
+        border-radius: 7px;
+        height: 35px;
+        min-width: 50%;
+        padding: 0 15px;
+        font-family: Manrope;
+        font-size: 15px;
+        font-weight: 500;
+        transition: border 0.3s;
+        margin-bottom: 15px !important;
+}
+
+.form-group .btn {
+    margin: 15px 0px;
+}
+
+</style>
+<body>
+    <!-- offer popup1 -->
+    <div class="login-popup first-pop">
+        <div class="box">
+           <div class="form login-wrap">
+              <div class="close first-close">&times;</div>
+              <h2><strong>Get 25% Discount</strong></h2>
+              <p>Fill Now! Get Ready to Launch Your Cloud Computing Career with Innovative Academy !</p>
+              <form action="Mail.php" method="POST" class="signup-form">
+                <div class="form-group">
+                <label for="name">Full Name</label>
+                <br>
+                <input type="text" id="name" name="name" inputmode="text" placeholder="eg. John Wick" style="width:-webkit-fill-available;margin:10px 0 0 0" autocapitalize="words" data-clarity-unmask="true" required="">
+                <div class="sp-20"></div>
+                
+                <div class="simpleobe">
+                    <label for="email">Email Address</label>
+                    <br>
+                    <input type="email" id="email" name="email" inputmode="email" placeholder="eg. demo@demo.com" style="width:-webkit-fill-available;margin:10px 0 0 0" data-clarity-unmask="true" required="">
+                </div>
+                
+                <div class="simpleobe onlymob">
+                    <label for="phone">Phone Number</label>
+                    <br>
+                    <input type="tel" id="phone" name="phone" inputmode="number" placeholder="eg. +919000090000" style="width:-webkit-fill-available;margin:10px 0 0 0" data-clarity-unmask="true" value="+91" required="">
+                </div>
+                </div>
+            <div class="form-group d-flex justify-content-center">
+              <button type="submit" name="sendmail" value="Send Details"  class="btn">Enroll Now &nbsp;
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send icon"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+             </form>
+           </div>
+        </div>
+     </div>
+     <!-- offer popup2 -->
+     <div class="login-popup second-pop">
+        <div class="box">
+           <div class="form">
+              <div class="close second-close">&times;</div>
+              <h2><strong>Wait !! </strong></h2>
+              <p>You are Just One Step Away from Your Cloud Computing Career with Innovative Academy !</p>
+              <form action="Mail.php" method="POST" class="signup-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <br>
+                    <input type="text" id="name" name="name" inputmode="text" placeholder="eg. John Wick" style="width:-webkit-fill-available;margin:10px 0 0 0" autocapitalize="words" data-clarity-unmask="true" required="">
+                    <div class="sp-20"></div>
+                    <div class="simpleobe">
+                        <label for="email">Email Address</label>
+                        <br>
+                        <input type="email" id="email" name="email" inputmode="email" placeholder="eg. demo@demo.com" style="width:-webkit-fill-available;margin:10px 0 0 0" data-clarity-unmask="true" required="">
+                    </div>
+                    
+                    <div class="simpleobe onlymob">
+                        <label for="phone">Phone Number</label>
+                        <br>
+                        <input type="tel" id="phone" name="phone" inputmode="number" placeholder="eg. +919000090000" style="width:-webkit-fill-available;margin:10px 0 0 0" data-clarity-unmask="true" value="+91" required="">
+                    </div>
+                </div>
+            <div class="form-group d-flex justify-content-center">
+              <button type="submit" name="sendmail" value="Send Details" class="btn">Enroll Now &nbsp;
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send icon"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+             </form>
+           </div>
+        </div>
+     </div>
+
+     <script>
+        // Disable right-click
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); 
+});
+
+
+const loginPopup1 = document.querySelector(".first-pop");
+        const loginPopup2 = document.querySelector(".second-pop")
+        const close1 = document.querySelector(".first-close");
+        const close2 = document.querySelector(".second-close");
+        window.addEventListener("load",function(){
+			showPopup1();
+			showPopup2();
+        })
+        function showPopup1(){
+            const timeLimit = 3 // seconds;
+            let i=0;
+            const timer = setInterval(function(){
+            i++;
+            if(i == timeLimit){
+                clearInterval(timer);
+                loginPopup1.classList.add("show");
+            } 
+            console.log(i)
+            },1000);
+        }
+
+        function showPopup2(){
+        const timeLimit = 60 
+        let i=0;
+        const timer = setInterval(function(){
+        i++;
+        if(i == timeLimit){
+            clearInterval(timer);
+            loginPopup2.classList.add("show");
+        } 
+        console.log(i)
+        },1000);
+        }
+
+        close1.addEventListener("click",function(){
+        loginPopup1.classList.remove("show");
+        })
+        close2.addEventListener("click",function(){
+        loginPopup2.classList.remove("show");
+        })
+     </script>
+     <script async src="https://widget.myoperator.com/js/inject.js"></script>
+</body>
+</html>
+
+
+
+	
+	

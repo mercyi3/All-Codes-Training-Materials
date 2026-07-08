@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+.login-popup{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1099;
+	background-color:rgba(0,0,0,0.6);
+	visibility: hidden;
+	opacity: 0;
+	transition: all 1s ease;
+}
+.login-popup.show{
+	visibility:visible;
+	opacity: 1;
+}
+.login-popup .box{
+	background-color:#ffffff;
+	width: 450px;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	/* display: flex; */
+	flex-wrap: wrap;
+	opacity: 0;
+	margin-left: 50px;
+	transition: all 1s ease;
+
+}
+.login-popup.show .box{
+	opacity: 1;
+	margin-left: 0;
+}
+.hero-big{
+    animation: zoomInOut 7s linear infinite;
+}
+
+@keyframes zoomInOut{
+	0%,100%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.1);
+	}
+}
+.login-popup .box .form{
+
+	padding: 10px 30px;
+}
+.login-popup .form h4{
+	text-align: center;
+	color: rgb(61, 61, 61);
+	padding: 20px 20px 20px 0;
+	font-family: Roboto, Tahoma, sans-serif;
+}
+
+.login-popup .box .form h1{
+	color:#ff811b;
+	font-size: 24px;
+	margin:0 0 30px;
+}
+
+.login-popup .box .form .btn{
+	width: 50%;
+	background-color: #ff811b;
+	height: 45px;
+	border:none;
+	border-radius: 25px;
+	font-size: 15px;
+	text-transform: uppercase;
+	color:#ffffff;
+	cursor: pointer;
+}
+.login-popup .box .form .btn:focus{
+	outline: none;
+}
+.login-popup .box .form .close{
+	position: absolute;
+	right: 10px;
+	top:0px;
+	font-size: 30px;
+	cursor: pointer;
+}
+.login-popup .form .off-area{
+
+	display: none;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+	.login-popup .box{
+		width: calc(100% - 30px);
+	}
+	.login-popup .box .img-area{
+		display: none;
+	}
+	.login-popup .form .off-area{
+		display: block;
+	}
+	.login-popup .box .form{
+		flex: 0 0 100%;
+        max-width: 100%;
+	}
+}
+
+.login-popup .form .btn{
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+/* field designs */
+.login-wrap {
+	position: relative;
+	background: #fff;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+	-moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+	box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+	z-index: 0;
+}
+	.login-wrap:after {
+	  position: absolute;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+	  content: '';
+	  background: rgba(0, 0, 0, 0.05);
+	  z-index: -1;
+	  border-radius: 50% 0 0 0; 
+    }
+	.login-wrap h3 {
+	  font-weight: 500;
+	  font-size: 20px;
+	  color: #4986fc; 
+	}
+	.login-wrap .form-group {
+	  position: relative;
+	  margin-bottom: 20px; 
+	}
+	  .login-wrap .form-group label {
+		position: absolute;
+		top: -8px;
+		left: 0;
+		font-weight: 700;
+		font-size: 16px;
+		color: rgba(0, 0, 0, 0.5);
+		margin-bottom: 0;
+		background: #fff;
+		margin-left: 30px;
+		padding: 0 4px; 
+	}
+	.login-wrap .form-control {
+	  height: 52px;
+	  background: #fff;
+	  color: #000000;
+	  font-size: 16px;
+	  border-radius: 40px;
+	  -webkit-box-shadow: none;
+	  box-shadow: none;
+	  border: 1px solid rgba(0, 0, 0, 0.1);
+	  padding-left: 20px;
+	  padding-right: 20px; 
+	}
+	.login-wrap .form-control:focus, .login-wrap .form-control:active {
+	outline: none !important;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: 1px solid #4986fc; 
+	}
+	.login-wrap textarea.form-control {
+	  height: inherit !important; 
+	}
+  
+</style>
+
+<link rel="stylesheet" href="css/popup.css">
+<body>
+
+     <!-- offer popup1 -->
+     <div class="login-popup first-pop">
+        <div class="box">
+           <div class="form login-wrap">
+              <div class="close first-close">&times;</div>
+              <h4>Get Ready to Launch Your Networking Career!<br> Enroll Now</h4>
+              <form action="Mail.php" method="POST" class="signup-form">
+                <div class="form-group">
+                   <label class="label" for="name">Full Name</label>
+                   <input id="name" type="text" name="name" class="form-control" placeholder="John Doe" required>
+               </div>
+               <div class="form-group">
+                   <label class="label" for="email">Email Address</label>
+                   <input id="email" type="email" name="email" class="form-control" placeholder="johndoe@gmail.com" required>
+               </div>
+               <div class="form-group">
+                <label class="label" for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="text" class="form-control" placeholder="9876543233" required>
+            </div>
+            <div class="form-group d-flex justify-content-center">
+              <button type="submit" name="sendmail" value="Send Details"  class="btn">Submit</button>
+            </div>
+             </form>
+           </div>
+        </div>
+     </div>
+     <!-- offer popup2 -->
+     <div class="login-popup second-pop">
+        <div class="box">
+           <div class="form login-wrap">
+              <div class="close second-close">&times;</div>
+              <h4>Wait ! You are Just One Step Away from Your Networking Career ! <br> Enroll Now</h4>
+              <form action="Mail.php" method="POST" class="signup-form">
+                <div class="form-group">
+                   <label class="label" for="name">Full Name</label>
+                   <input id="name" type="text" name="name" class="form-control" placeholder="John Doe" required>
+               </div>
+               <div class="form-group">
+                   <label class="label" for="email">Email Address</label>
+                   <input id="email" type="email" name="email" class="form-control" placeholder="johndoe@gmail.com" required>
+               </div>
+               <div class="form-group">
+                <label class="label" for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="text" class="form-control" placeholder="9876543233" required>
+            	</div>
+            <div class="form-group d-flex justify-content-center">
+              <button type="submit" name="sendmail" value="Send Details" class="btn">Submit</button>
+            </div>
+             </form>
+           </div>
+        </div>
+     </div>
+    
+	 <script src="js/popup.js"></script>
+
+    <script>
+        const loginPopup1 = document.querySelector(".first-pop");
+        const loginPopup2 = document.querySelector(".second-pop")
+        const close1 = document.querySelector(".first-close");
+        const close2 = document.querySelector(".second-close");
+        window.addEventListener("load",function(){
+			showPopup1();
+			showPopup2();
+        })
+        function showPopup1(){
+            const timeLimit = 10 // seconds;
+            let i=0;
+            const timer = setInterval(function(){
+            i++;
+            if(i == timeLimit){
+                clearInterval(timer);
+                loginPopup1.classList.add("show");
+            } 
+            console.log(i)
+            },1000);
+        }
+
+        function showPopup2(){
+        const timeLimit = 30 
+        let i=0;
+        const timer = setInterval(function(){
+        i++;
+        if(i == timeLimit){
+            clearInterval(timer);
+            loginPopup2.classList.add("show");
+        } 
+        console.log(i)
+        },1000);
+        }
+
+        close1.addEventListener("click",function(){
+        loginPopup1.classList.remove("show");
+        })
+        close2.addEventListener("click",function(){
+        loginPopup2.classList.remove("show");
+        })
+    </script>
+</body>
+</html>

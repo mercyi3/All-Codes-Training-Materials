@@ -1,0 +1,75 @@
+/*Input Your Custom CSS Here*/
+
+.modal-form {
+	width: 80%;
+	margin: auto;
+}
+
+
+.main-panel .panel {
+	margin: 0;
+	padding: 0 !important;
+}
+
+.main-panel .panel-heading {
+	border-bottom: 1px solid #ccc !important;
+	display: block;
+	padding: 15px 10px;
+}
+
+
+.faq-style1-sec .panel-heading {
+	margin-bottom: 0px;
+}
+
+.no-padding {
+	margin:  !important;
+	padding: !important;
+}
+
+
+/*faq style*/
+
+.accordion1 {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accordion1:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.pane2 {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+		
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+ 
+.popup {
+transform: translate(-50%, -50%);
+border-radius: 10px;
+}
+
+.popup h2{
+    margin: -8px 0 0;
+    font-size: 32px;
+}
+
+.popup label {
+font-weight: 500;
+margin-bottom: 15px;
+cursor: pointer;
+}
+
+.offer-popup {
+    display: none;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    background: #FFF;
+    border-radius: 15px;
+    border: 1px solid #e7eaff;
+    padding: 25px;
+    width: 60%;
+    margin: 20px auto;
+    position: fixed;
+    left: 18%;
+    top: 90px;
+    z-index: 99999999;
+    height: 70dvh;
+  }
+
+  .popup-for-phone {
+    align-items: center;
+    justify-content: space-between;
+    }
+
+    .sp-20 {
+        height: 20px;
+        }
+
+        input,
+        select,
+        textarea {
+        background-color: #ecf2f7b5;
+        outline: 0;
+        border: 1.5px solid #e3e5f5;
+        box-shadow: none;
+        border-radius: 7px;
+        height: 40px;
+        min-width: 50%;
+        padding: 0 15px;
+        font-family: Manrope;
+        font-size: 15px;
+        font-weight: 500;
+        transition: border 0.3s;
+        margin-top: 5px !important;
+        }
+        input:focus,
+        select:focus,
+        textarea:focus {
+        border: 1.5px solid var(--primary-color);
+        }   
+</style>
+<body>
+    <div id="popup" class="popup" style="display: block;">
+        <span class="close-icon"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x icon close-btn" onclick="closePopup()"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        
+        
+        <p style="font-size: 25px;">
+         <strong>Book Free Demo Class.</strong>
+        </p>
+        <p>Get a free demo class for the desired course you loves to continue with Inventateq.</p>
+        <div id="message" class="popupmsg"></div>
+        <form id="popupForm">
+         <div class="sp-20"></div>
+         <input type="hidden" id="page_title" name="page_title" value="Inventateq - Software Training Courses in Bangalore, Hyderabad, Chennai with Guaranteed Placement">
+         <input type="hidden" id="page_url" name="page_url" value="https://www.inventateq.com/">
+         <label for="name">Full Name</label>
+         <br>
+         <input type="text" id="name" name="name" inputmode="text" placeholder="eg. John Wick" style="width:-webkit-fill-available;margin:10px 0 0 0" autocapitalize="words" data-clarity-unmask="true" required="">
+         <div class="sp-20"></div>
+       
+       
+       <div class="form-group">
+         <div class="simpleobe">
+             <label for="email">Email Address</label>
+             <br>
+             <input type="email" id="email" name="email" inputmode="email" placeholder="eg. demo@demo.com" style="width:-webkit-fill-available;margin:10px 0 0 0" data-clarity-unmask="true" required="">
+         </div>
+         
+         <div class="simpleobe onlymob">
+             <label for="phone">Phone Number</label>
+             <br>
+             <input type="tel" id="phone" name="phone" inputmode="number" placeholder="eg. +919000090000" style="width:-webkit-fill-available;margin:10px 0 0 0" data-clarity-unmask="true" value="+91" required="">
+         </div>
+       </div>
+       
+       
+         <div class="sp-20"></div>
+       
+           <!-- Cloudflare Turnstile Managed Widget
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA0V21tPJi1tvLli" data-theme="light" style="border-radius: 10px;" data-size="flexible" data-language="auto"></div> -->
+       
+         <div class="form-checkbox">
+          <input type="checkbox" id="terms" name="terms" checked="" required="">
+          <label for="terms" style="margin-bottom:0">I agree to the <a href="https://www.inventateq.com/legal/terms-conditions.php" target="blank">terms and conditions</a>
+          </label>
+         </div>
+       
+         <div style="display:none">
+          <input type="text" id="honeypot" name="honeypot">
+         </div>
+       
+         <div class="sp-20"></div>
+       
+         <button type="submit" style="width: 100%;" class="primary" id="submitbutton-b">Enroll Now&nbsp;&nbsp;&nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send icon"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+         </button>
+        </form>
+       </div>
+
+       <script>
+        setTimeout(function () {
+            var PostButtonB = document.getElementById("submitbutton-b");
+            $(document).ready(function () {
+                $('#popupForm').submit(function (e) {
+                    PostButtonB.innerHTML = '<i class="icon spining" data-feather="loader"></i>';
+                    feather.replace();
+                    e.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        url: '/template-parts/process-main-form.php',
+                        data: $(this).serialize(),
+                        success: function (response) {
+                            if (response.trim() === "success") {
+                                $('.popupmsg').show();
+                                $('.popupmsg').html('<div class="success" style="display: block;">Thank You! Redirecting..</div>');
+                                PostButtonB.innerHTML = '<i class="icon" data-feather="check-circle"></i>';
+                                feather.replace();
+                                setTimeout(function () {
+                                    window.location.href = '/online-thank-you.php';
+                                    $('.popupmsg').hide();
+                                    $('#popupForm')[0].reset();
+                                }, 500);
+                            } else {
+                                PostButtonB.innerHTML = 'Enroll Now&nbsp;&nbsp;&nbsp;<i class="icon" data-feather="send"></i>';
+                                feather.replace();
+                                $('.popupmsg').show();
+                                $('.popupmsg').html(response);
+                                $('#popupForm')[0].reset();
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            PostButtonB.innerHTML = 'Enroll Now&nbsp;&nbsp;&nbsp;<i class="icon" data-feather="send"></i>';
+                            feather.replace();
+                            $('.popupmsg').show();
+                            $('.popupmsg').html('<div class="error" style="display: block;">Error occurred. Please try again later.</div>');
+                            $('#popupForm')[0].reset();
+                        }
+                    });
+                });
+            });
+        }, 100);
+        
+       </script>
+</body>
+</html>

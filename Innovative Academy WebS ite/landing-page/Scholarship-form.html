@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <title>Scholarship Test Form</title>
+  
+  <!-- <script type="text/javascript">
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Disable right-click
+        });
+    </script> -->
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .watermark {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 40%;
+      transform: translate(-50%, -50%);
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image: url(./ClassRoom.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* opacity: 0.9; */
+    }
+    .formbold-main-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+    }
+  
+    .formbold-form-wrapper {
+      margin: 0 auto;
+      max-width: 770px;
+      width: 100%;
+      background: white;
+      padding: 40px;
+      
+    }
+  
+    .formbold-form-img {
+      margin-bottom: 45px;
+    }
+  
+    .formbold-input-group {
+      margin-bottom: 18px;
+    }
+  
+    .formbold-form-select {
+      width: 100%;
+      padding: 12px 22px;
+      border-radius: 5px;
+      border: 1px solid #dde3ec;
+      background: #ffffff;
+      font-size: 16px;
+      color: #536387;
+      outline: none;
+      resize: none;
+    }
+  
+    .formbold-input-radio-wrapper {
+      margin-bottom: 25px;
+    }
+    .formbold-radio-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .formbold-radio-label {
+      font-size: 14px;
+      line-height: 24px;
+      color: #07074d;
+      position: relative;
+      padding-left: 25px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .formbold-input-radio {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .formbold-radio-checkmark {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      height: 18px;
+      width: 18px;
+      background-color: #ffffff;
+      border: 1px solid #dde3ec;
+      border-radius: 50%;
+    }
+    .formbold-radio-label
+      .formbold-input-radio:checked
+      ~ .formbold-radio-checkmark {
+      background-color: #6a64f1;
+    }
+    .formbold-radio-checkmark:after {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+  
+    .formbold-radio-label
+      .formbold-input-radio:checked
+      ~ .formbold-radio-checkmark:after {
+      display: block;
+    }
+  
+    .formbold-radio-label .formbold-radio-checkmark:after {
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ffffff;
+      transform: translate(-50%, -50%);
+    }
+  
+    .formbold-form-input {
+      width: 100%;
+      padding: 13px 22px;
+      border-radius: 5px;
+      border: 1px solid #dde3ec;
+      background: #ffffff;
+      font-weight: 500;
+      font-size: 16px;
+      color: #07074d;
+      outline: none;
+      resize: none;
+    }
+    .formbold-form-input::placeholder {
+      color: #536387;
+    }
+    .formbold-form-input:focus {
+      border-color: #6a64f1;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+    .formbold-form-label {
+      color: #07074d;
+      font-size: 14px;
+      line-height: 24px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .formbold-btn:disabled {
+      background-color: grey;
+      color: white;
+      cursor: not-allowed;
+  }
+  
+    .formbold-btn {
+      text-align: center;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 5px;
+      padding: 14px 25px;
+      border: none;
+      font-weight: 500;
+      background-color: #6a64f1;
+      color: white;
+      cursor: pointer;
+      margin-top: 25px;
+    }
+    .formbold-btn:hover {
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    body{
+        background-color: cornflowerblue;
+    }
+    label{
+        font-weight: bold;
+        
+    }
+
+    h2{
+      text-shadow: 0 0 2px #ff811b;
+      text-align: center;
+      border: 2px ridge #ff811b;
+      box-shadow: 2px 2px #ff811b;
+      padding: 5px;
+      color: #ff811b ;
+    }
+    p{
+      text-align: center;
+      font-weight: 600;
+    }
+
+    a{
+       text-decoration: none;
+    }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 80%;
+    max-width: 700px;
+    max-height: 90vh; /* Sets max height */
+    overflow-y: auto; /* Enables vertical scrolling */
+    border-radius: 10px;
+  }
+  .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+  }
+  
+   @media screen and(max-width:575px) {
+            
+            body {
+                font-size: 3vw;
+            }
+        }
+        
+  </style>
+</head>
+<body>
+
+<div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper" >
+      <img src="./logo.png" width="60%" style="margin-left: 100px; margin-top : -30px;">
+      <form action="" method="POST" name="scolarship-form">
+        <img src="./logo.png" class="watermark">
+        <h2><i>DevOps & Java Boot Camp Scholarship Application</i></h2><br>
+        <p>Ready to boost your career in DevOps & Java? <br>
+            Apply now for a up to 100% scholarship to our exclusive Boot Camp!
+          </p>
+
+        <h5>About the Scholarship</h5>
+        <p style="text-align: start;">This program is designed for passionate learners who want to gain hands-on experience in DevOps, Java, CI/CD, Docker, Kubernetes, and Cloud Computing. Whether you're a student, graduate, or IT professional, this boot camp will help you enhance your skills and career prospects.</p>
+          
+        <ul style="list-style-type: none;">
+            <li><b>Application Deadline:</b></li>
+            <li><b>Boot Camp Duration:</b></li>
+            <li><b>Mode: Online / Hybrid</b></li>
+        </ul>
+        <h5>What You’ll Get:</h5>
+        <ul style="list-style-type: none;">
+            <li><svg width="16" height="16" fill="#ff811b" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>&nbsp;&nbsp;Hands-on training from industry experts</li>
+            <li><svg width="16" height="16" fill="#ff811b" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>&nbsp;&nbsp;Live projects & real-world applications</li>
+            <li><svg width="16" height="16" fill="#ff811b" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>&nbsp;&nbsp;Certification upon completion</li>
+            <li><svg width="16" height="16" fill="#ff811b" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>&nbsp;&nbsp;Mentorship & career guidance</li>
+        </ul>  <br>
+
+            <h2>Application Form</h2><br>
+        <div class="formbold-input-group">
+          <label for="Name" class="formbold-form-label"> Full Name </label>
+          <input
+            type="text"
+            name="name"
+            id="Name"
+            placeholder="Enter your Name"
+            class="formbold-form-input"
+            required
+          />
+        </div>
+  
+        <div class="formbold-input-group">
+          <label for="Email" class="formbold-form-label"> Email Address</label>
+          <input
+            type="email"
+            name="email"
+            id="Email"
+            placeholder="Enter your email"
+            class="formbold-form-input"
+            required
+          />
+        </div>
+  
+        <div class="formbold-input-group">
+          <label for="Number" class="formbold-form-label"> Phone Number </label>
+          <input
+            type="text"
+            name="number"
+            id="Number"
+            placeholder="Enter your Phone Number"
+            class="formbold-form-input"
+            required
+          />
+        </div>
+
+        <div class="formbold-input-group">
+          <label for="profile" class="formbold-form-label">LinkedIn/GitHub Profile (Optional)</label>
+          <input
+            type="text"
+            name="profile"
+            id="Profile"
+            placeholder="Enter your profile link"
+            class="formbold-form-input"
+          />
+        </div>
+
+        <div class="formbold-input-group">
+          <label for="city" class="formbold-form-label"> Current City & Country</label>
+          <input
+            type="text"
+            name="city"
+            id="city"
+            placeholder="Bangalore, India."
+            class="formbold-form-input"
+          />
+        </div>
+
+        <h5>Educational & Professional Background</h5>
+        <div class="formbold-input-group">
+            <label class="formbold-form-label">
+                Current Education:
+            </label>
+    
+            <select class="formbold-form-select" name="education" id="education"  onchange="toggleOtherField()" required>
+                <option value="disabled" selected>Please select</option>
+                <option value="Student (Undergraduate) ">Student (Undergraduate) </option>
+                <option value="Student (Postgraduate)">Student (Postgraduate)</option>
+                <option value="Working Professional">Working Professional</option>
+                <option value="Freelancer">Freelancer</option>
+                <option value="Other">Other</option>
+             </select>
+
+        </div>
+        <div class="formbold-input-group" id="otherField" style="display: none;">
+            <label class="formbold-form-label">Please specify:</label>
+            <input type="text" class="formbold-form-input" name="otherEducation" id="otherEducation" required>
+        </div>
+
+       <div class="formbold-input-radio-wrapper">
+          <label for="Experience" class="formbold-form-label">
+            Do you have prior experience in Java or DevOps?
+          </label>
+  
+          <div class="formbold-radio-flex">
+            <div class="formbold-radio-group">
+              <label class="formbold-radio-label">
+                <input
+                  class="formbold-input-radio"
+                  type="radio"
+                  id="YesProfessional"
+                  name="experience"
+                  value="Yes, I have professional experience"
+                  required
+                />
+                Yes, I have professional experience
+                <span class="formbold-radio-checkmark"></span>
+              </label>
+            </div>
+  
+            <div class="formbold-radio-group">
+              <label class="formbold-radio-label">
+                <input
+                  class="formbold-input-radio"
+                  type="radio"
+                  name="experience"
+                  value="Yes, I have academic experience"
+                  id="YesAcademic"
+                  required
+                />
+                Yes, I have academic experience
+                <span class="formbold-radio-checkmark"></span>
+              </label>
+            </div>
+
+            <div class="formbold-radio-group">
+                <label class="formbold-radio-label">
+                  <input
+                    class="formbold-input-radio"
+                    type="radio"
+                    name="experience"
+                    value="No, I am a beginner"
+                    id="No"
+                    required
+                  />
+                  No, I am a beginner
+                  <span class="formbold-radio-checkmark"></span>
+                </label>
+              </div>
+          </div>
+        </div> 
+
+        <div class="formbold-input-group">
+            <label class="formbold-form-label">What programming languages & tools are you familiar with? </label>
+
+            <div class="form-check">
+                <input class="form-check-input" name="language[]" type="checkbox" value="Java" id="flexCheckDefault1" required>
+                <label class="form-check-label" for="flexCheckDefault">Java</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="language[]" type="checkbox" value="Python" id="flexCheckDefault2" required>
+                <label class="form-check-label" for="flexCheckDefault">Python</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="language[]" type="checkbox" value="Git" id="flexCheckDefault3" required>
+                <label class="form-check-label" for="flexCheckDefault">Git</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="language[]" type="checkbox" value="Docker" id="flexCheckDefault4" required>
+                <label class="form-check-label" for="flexCheckDefault">Docker</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="language[]" type="checkbox" value="Kubernetes" id="flexCheckDefault5" required>
+                <label class="form-check-label" for="flexCheckDefault">Kubernetes</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="language[]" type="checkbox" value="AWS/Azure/GCP" id="flexCheckDefault6" required>
+                <label class="form-check-label" for="flexCheckDefault">AWS/Azure/GCP</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="language[]" type="checkbox" value="CI/CD Tools (Jenkins, GitHub Actions, etc.)" id="flexCheckDefault7" required>
+                <label class="form-check-label" for="flexCheckDefault">CI/CD Tools (Jenkins, GitHub Actions, etc.)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="language[]" type="checkbox" value="None, I am new to this field" id="flexCheckDefault8" required>
+                <label class="form-check-label" for="flexCheckDefault">None, I am new to this field</label>
+            </div>
+        </div>
+
+        <h5>Motivation & Goals</h5>
+      
+        <div class="formbold-input-group">
+          <label for="whywant" class="formbold-form-label"> Why do you want this scholarship? </label>
+          <input
+            type="text"
+            name="whywant"
+            id="whywant"
+            class="formbold-form-input"
+          />
+        </div>
+
+        <div class="formbold-input-group">
+          <label for="careergoal" class="formbold-form-label">How will this Boot Camp help you achieve your career goals? </label>
+          <input
+            type="text"
+            name="careergoal"
+            id="careergoal"
+            class="formbold-form-input"
+          />
+        </div>
+
+        <h5>Supporting Documents (Optional)</h5>
+        <div class="formbold-input-group">
+          <label for="resumorincome" class="formbold-form-label">Upload Your Resume and Income Proof Certificate</label>
+          <input
+            type="file"
+            name="resumorincome"
+            id="resumorincome"
+            class="formbold-form-input"
+          />
+        </div>
+
+        <h5>Additional Information</h5>
+        <div class="formbold-input-group">
+          <label class="formbold-form-label">
+            How did you hear about us?
+          </label>
+  
+          <select class="formbold-form-select" name="howyouhear" id="How did you hear" required>
+            <option value="disabled" selected>Please select</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Referrel">Referrel</option>
+            <option value="Website">Website</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <a onclick="showPopup()" href="#popup" required><b>Terms and Conditions:</b> Please read and click on I agree to proseed.</a>
+
+        <input type="submit" value="Submit" id="submit"  name="submit" class="formbold-btn" disabled>
+      </form>
+
+      <div class="overlay" id="overlay"></div>
+
+      <div class="popup" id="popup">
+        <h2>Terms & Conditions – DevOps & Java Boot Camp Scholarship</h2>
+        <br><h5>1.	Scholarship Eligibility</h5>
+        <ul>
+          <li>The scholarship is open to students, recent graduates, and working professionals who wish to upskill in DevOps and Java Full stack.</li>
+          <li>Applicants must complete the scholarship application form and provide all required details accurately.</li>
+        </ul>
+        <h5>2.	Scholarship Award Criteria</h5>
+        <ul>
+          <li>Scholarship percentage will be determined based on:</li>
+          <ol type="a">
+            <li> <b>Financial Need:</b> Household income and supporting documents.</li>
+            <li> </b>Merit:</b> Performance in the assessment test conducted by the boot camp team.</li>
+          </ol>
+          <li>Up to 5 students will receive a 100% scholarship based on merit and need.</li>
+          <li>Other applicants may receive partial scholarships based on their performance and financial background.</li>
+        </ul>
+        <h5>3.	Management's Decision</h5>
+        <ul>
+          <li>The management holds full discretion over the selection process, scholarship allocation, and final decisions.</li>
+          <li>Decisions regarding scholarship awards are final and non-negotiable.</li>
+          <li>The organization reserves the right to withdraw or modify the scholarship offer if any misrepresentation or false information is found in the application</li>
+        </ul>
+        <h5>4.	Commitment & Code of Conduct</h5>
+        <ul>
+          <li>Selected scholars must attend all boot camp sessions and complete assignments/projects as required.</li>
+          <li>Failure to meet participation or performance expectations may result in revocation of the scholarship.</li>
+        </ul>
+        <h5>5.	Verification Process</h5>
+        <ul>
+          <li>Shortlisted applicants may be required to submit income proof, academic records, or other supporting documents for verification.</li>
+          <li>Failure to provide necessary documentation may result in disqualification from the scholarship program.</li>
+        </ul>
+        <h5>6.	Non-Transferability</h5>
+        <ul>
+          <li>Scholarships awarded are non-transferable and can only be used for the designated boot camp program.</li>
+        </ul>
+
+        <p>By submitting your application, you agree to abide by the terms & conditions outlined above.</p>
+        <p><b>For any queries, contact:</b> info@innovativeacademy.in</p>
+        <input type="submit" value="I Agree" id="submit" onclick="acceptTerms()" name="IAgree" class="formbold-btn">
+    </div>
+    </div>
+  </div>
+
+   <script> 
+      const scriptURL = ''
+
+      const form = document.forms['scholarship-form']
+
+      form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Form submission successful');
+                        window.location.href = 'pmsubmission.html';
+                    } else {
+                        console.error('Form submission failed');
+                    }
+                })
+                .catch(error => console.error('Error!', error.message));
+        });
+    </script>
+    <script>
+        function toggleOtherField() {
+            var selectBox = document.getElementById("education");
+            var otherField = document.getElementById("otherField");
+            
+            if (selectBox.value === "Other") {
+                otherField.style.display = "block";
+            } else {
+                otherField.style.display = "none";
+            }
+        }
+
+        function showPopup() {
+          document.getElementById('popup').style.display = 'block';
+          document.getElementById('overlay').style.display = 'block';
+      }
+      
+      function acceptTerms() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('submit').disabled = false;
+      }
+  </script>
+  </body>
+
+  </html>

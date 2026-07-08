@@ -1,0 +1,141 @@
+  
+.login-popup{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1099;
+	background-color:rgba(0,0,0,0.6);
+	visibility: hidden;
+	opacity: 0;
+	transition: all 1s ease;
+    
+}
+.login-popup.show{
+	visibility:visible;
+	opacity: 1;
+}
+.login-popup .box{
+	background-color:#ffffff;
+	width: 450px;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	/* display: flex; */
+	flex-wrap: wrap;
+	opacity: 0;
+	margin-left: 50px;
+	transition: all 1s ease;
+    border-radius: 10px;
+}
+.login-popup.show .box{
+	opacity: 1;
+	margin-left: 0;
+}
+.hero-big{
+    animation: zoomInOut 7s linear infinite;
+}
+
+@keyframes zoomInOut{
+	0%,100%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.1);
+	}
+}
+.login-popup .box .form{
+
+	padding: 10px 30px;
+}
+.login-popup .form h2{
+	text-align: center;
+	color: rgb(61, 61, 61);
+	padding: 2px 5px;
+	font-family: Roboto, Tahoma, sans-serif;
+}
+
+.login-popup .box .form .btn{
+	width: 100%;
+	background-color: #ff811b;
+	height: 35px;
+	border:none;
+	border-radius: 5px;
+	font-size: 14px;
+	text-transform: uppercase;
+	color:#ffffff;
+	cursor: pointer;
+}
+.login-popup .box .form .btn:focus{
+	outline: none;
+}
+.login-popup .box .form .close{
+	position: absolute;
+	right: 10px;
+	top:0px;
+	font-size: 30px;
+	cursor: pointer;
+}
+.login-popup .form .off-area{
+
+	display: none;
+}
+
+.login-popup .box .form p{
+    text-align: center;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+	.login-popup .box{
+		width: calc(100% - 30px);
+	}
+	.login-popup .box .img-area{
+		display: none;
+	}
+	.login-popup .form .off-area{
+		display: block;
+	}
+	.login-popup .box .form{
+		flex: 0 0 100%;
+        max-width: 100%;
+	}
+}
+
+.login-popup .form .btn{
+	font-weight: bold;
+    font-family: Roboto, Tahoma, sans-serif ;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.form-group input {
+    background-color: #ecf2f7b5;
+        outline: 0;
+        border: 1.5px solid #e3e5f5;
+        box-shadow: none;
+        border-radius: 7px;
+        height: 35px;
+        min-width: 50%;
+        padding: 0 15px;
+        font-family: Manrope;
+        font-size: 15px;
+        font-weight: 500;
+        transition: border 0.3s;
+        margin-bottom: 15px !important;
+}
+
+.form-group .btn {
+    margin: 15px 0px;
+}

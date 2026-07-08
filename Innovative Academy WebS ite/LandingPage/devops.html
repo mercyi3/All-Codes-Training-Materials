@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Bootcamp in Innovative Academy</title>
+    <link href="./devops-landing-style.css.css" rel="stylesheet">
+    <!-- <script src="./Script.js" type="text/javascript"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../innovative Original New/assets/img/favicon.png">
+</head>
+<body>
+    <div id="root">
+        <div class="banner__section">
+            <header class="header-section menu-fixed">
+                <div class="container">
+                    <div class="header-wrapper">
+                        <div class="main__logo">
+                            <a class="logo" href="/">
+                                <img src="../innovative Original New/assets/img/logo/logo.png" alt="logo">
+                            </a>
+                        </div>
+                        <ul class="main-menu ">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#syllabus">Syllabus</a></li>
+                            <li><a href="#testimonial">Testimonial</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                        <div class="menu__components d-flex align-items-center">
+                            <a class="d-flex fw-500 cmn--btn align-items-center gap-2" href="/contact">
+                                <span class="get__text">Enquiry Now</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="fz-20">
+                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                    </div>
+                </div>
+            </div>
+            </header>
+            <section id="home"><div class="container">
+                <div class="row g-4 mt-10">
+                    <div class="col-lg-8">
+                        <div class="banner__content">
+                            <h1>
+                                <span class="hone"> Best</span>
+                                <span class="d-block designers" data-text="DevOps"> DevOps</span>
+                                <span class="hone"> Course in Bangalore</span>
+                            </h1>
+                            <div class="video__area">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAABECAYAAAAlba0pAAADuElEQVRogd2a8XHaMBTGX7n+X2eCOhvABHUnKJ2g7gSlE5BOEDKByQSQCSATwAbQCcwG6unuKX15Z9mSebJkvjtdDDi2fn7yk/RJH5RS0FM5AFywJKmJR6UyAFgAwA4AagA44d8KQdOTjlxHyZRSS6VUrf7roJRa4G8u14hSum5aKKVOBEofz1MGoqXtx6V6r1XqkXKFo2A1RnA0UG1wS9YM8zGC6cK7ggKzIWCKnwHAOdVU3yXaFWSY1o1+jxkMGNwv0l+tsYxaplnm2BwN3P3YowYkcgWL2ujBgMD9IN+9RKqLuEyzpCnzLuXBsI8m2CSNzrcCBgiXkc838a4ZcbibEp/PpTkv6ykOd1NR1HBH8lnDfY5YH1FNGpLI95EzvWmCqZ8CfotcJzGZd46OSopbSSwGbsu+LyPURVx0snoAgCkeX3BmMOrRCu0KnsixzpqPEeojKm4znNj79hUA9sL3zLDkmMjCDfmYqVIwO+8kZOfp6z4yD5Rqp5Qqh3C/VuzGmytukCGUq0TdNttCCE0uWis0jHzErQvAJvhCRkVT7Ff5OTORZGahzhua0NIzYvT/6w4bfsHWIh5CNUtTpuyGPoC0Kbo2tZK9g0HhbIC7jsrm7HwfK95Eux4CzgZ4aql0Rc6rPCtUk+sPAmcAm9J4xaJ4TdToGsV2SDiwJBnzlBd4Tsm+7wPm+1BE4Ex5aAA0MBTe5ekX+A5TrSTA+sK1RZFqh5XnI5wcI8yhtNZSYNfAmVI6QLpKLGJScKbMLZFw0S7Uyu01+1CaxGcVNplh2DbArONNH4WvdyZwTzgm5ePGwTbmSMP9Jcefgs/XOuSzg8hF1AO9GwrCppBwX4Sv7a2QcNHda2m4C8t+P4Wv7yVpOK1Xchy1aUr3c4Cp/0Q+h3DQnBQicmcGswxwDyeFgNP6Q46LWPZ8iGZptCObCaLsIwsVOWBWoO4WNkOv3IaEOzLAac/1hwr/r3A4971CTDVYWbNpz8HTVd6w2b72bZymSEPANQH62OY2c6pG0NK2njEUHFi8F+6e2Ure8IC4zGJKHgMOGna706YmBanQ8Q7aFbSpxJ2CPEkccQDwit3Gkf2eY8YtcfNrm2ax4Ghl57jS458N7dIP5j42HFWG3UWBA+5pj37xQuyNS0pwTSocO/89Gk5r6s9IeyiSmmPnbQMzUdpbZx0DZ8uukuG6Q5vR6+xzphS5KTbBJt+zsdl1KZV3Lsd1eNoEu5tdh1KJXIVgF3ShnyVm76lETnfKxlyScaMB4B9LQLHGWQdpggAAAABJRU5ErkJggg==" class="vid__arrow" alt="img">
+                                <div class="video__80 video-btn"><i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"></path>
+                                    </svg>
+                                </i></div>
+                                <span class="proces">Demo video</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="banner__thumb animate__animated animate__fadeInLeft">
+                            <img src="./img/Tutor2.png" alt="man-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner__leftinfo">
+                <div class="left__infomobile">
+                    <a href="/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAZCAYAAAA8CX6UAAAChElEQVQ4ja3UW4jWVRQF8N98aig4VpqlpihoRlGQiiL6YhQGAz4F9iYoXiAQIQqieughiIIeFMwngxBBvGHRfEEJQSQlluINxUulA16DMcskU5Md64OvcUYQXS//zdnnrP8+a+19Orq7uxfjdTyIrViDn/EYVmIpLuJTrEcvnsJbWIC9WDsYr+JJDMrBH0P0BJbh0ZC+iS9D9CJexjDMw5AGngtJoZHKCg+HpIVReCDxpJAUOvB4HdyMq1n8CfsTn8IPbUQ7csXC9ziZ+Hdsqqu9h93Fim+xLxuO4w08n4q7cSG5r3ENs0O+o8R2L+jq6vrvdFU0AlNKMPTgPG5Er9HRo/7+a65xM+cmYGyz2byEX2pz2f85duJ9TE2BY/EOvsFnaZGRyT2L1fgOG/BKI5aPw3AswtxsrpZYHncmRK9xyb2UHirHpuO1IhqThRZa8bA2u1ut0co91EfWjkquw7ks1PX2JD6GbfgH/+KTPvt2Jf6tcuValTsDj6SHDuPviD85DdtIi1RvXU+1z+BplNi77qv9VdEcDMUBHI3dQ9IWM3ElXd+T1qi902p4m83mmZKjNbSr4tpXeDuDW069i4X4A1vSDmcxCx+ks+u66xqxeHgqnZ9NMv0LE3diSRwuvBCSwsTiaMSRdvw5gBy9cbAv6vz5IvoQR3L3jW0TX2trM5SXEp9N7gtsj7sn6mrlWmfmqTNinmmbtVEpvSOPXW/brNUIjcdf9VIMjpAH+yn5Zqq52E/uen7a027/QBga4WuuLucNOpTWuA13Ipoc++thK0HruyJ234bSYSCUbnW4UBpVZTVG/eJORCVi6y0v1MNWHX7XRDUqH8Xe0/i4bfr/D9wCSdykp1ScNBQAAAAASUVORK5CYII=" alt="img"></a>
+                    <a href="/">8447712333</a>
+                </div>
+                <div class="right__infoscroll">
+                    <a class="scroll" href="/">scroll down</a><a class="scroll__bar" href="/">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAADBCAYAAAC0XlJdAAADLElEQVR4nO3dTYhNYRzH8e9oZGIhUfJSCgs1NYWN1ywkhQkbJSUsTrEQEiIiUkrJezM2CuVlgRmlRKTxzkLJysZbCgspZMZbR381aWbu3HOfnzH1+9bt3s6ce87n3jnnOc9Z3aqGhgYE3QAWAB9KbTrLsrL23kehVWawOoPVGazOYHUGqzNYncHqDFZnsDqD1RmszmB1BqszWJ3B6gxWZ7A6g9UZrM5gdQarM1idweoMVmewOoPVGazOYHUGqzNYncHqDFZnsDqD1RmszmB1BqszWJ3B6gxWZ7A6g9UZrM5gdQarM1idweoMVmewOoPVGazOYHUGqzNYncHqDFZnsDqD1RmszmB1BqszWJ3B6gxWZ7A6g9UZrM5gdQarM1idweoMVmewOoPVGazOYHUGqzNYncHqDFZnsLpeB64GRgOvgNb/wNNpjY2NA4GaHHwAGBkrtgCXgGtAWw8DhwALgdlAbfwi5oUcPC/W6Q/MAOYD+4Hz8fzmH0OnAWuBMcAZYBfwOMuyn8Qh8afPwOV49AOWAlfisQP4KIbWAXuBr8CeLMtaOlqvuqOF8aZjwHFgJXAX2Ag0C6D5l7MdmAmsz7LsZlfrlxol2uIYz4+j1fG6sw9ZpFHA9Tjhp5bCUsbOXwZ6d5yUixIcIhOA08CqLMuudvdN5YzDP4BNQFMc1wOKOX83CTgB1JeDpeC/9wiQn7EXgTkFxu/aOD/y0ehZuTsveqU7CtwBDpb5vkHAOWB5ESwVXpq3AcOBJd1cvypGnfw8eFh0p5Wc8flhsQK4Hb/P/LrE+stirD9ZwT4rnvy8A7YA+0qsNxjYEENjRaWYrZ0FhgKTu1hnK3AoPmCPg/M2Azs7+dswYFaMDBWXCnwrtlXXwd/WxSQqyfQ15QT+MLDmr2V9Y4p4KtVOUoKb4jiuabesPmZ/n1LtJCU4nyjll9m57ZYtjjltslLf0zXH7+UTY/z4uCL+t+D8AjIxXk+Jk/F7yh2kBrfGFW8sMD3uEZOmuM1/BIyIb/pBbwDfj+dxwJPUG1eAn8bzW+Bb6o0rwM/j+YVg2xLwF+C9CpzyDrh9+UT9XvKtAr8ASJF/F9PufdsAAAAASUVORK5CYII=" alt="img">
+                    </a>
+                </div>
+            </div>
+            <div class="banner__rightinfo">
+                <div class="right__infoscroll">
+                    <a class="scroll" href="/">Follow Me</a>
+                    <a class="scroll__bar" href="/">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAADBCAYAAAC0XlJdAAADLElEQVR4nO3dTYhNYRzH8e9oZGIhUfJSCgs1NYWN1ywkhQkbJSUsTrEQEiIiUkrJezM2CuVlgRmlRKTxzkLJysZbCgspZMZbR381aWbu3HOfnzH1+9bt3s6ce87n3jnnOc9Z3aqGhgYE3QAWAB9KbTrLsrL23kehVWawOoPVGazOYHUGqzNYncHqDFZnsDqD1RmszmB1BqszWJ3B6gxWZ7A6g9UZrM5gdQarM1idweoMVmewOoPVGazOYHUGqzNYncHqDFZnsDqD1RmszmB1BqszWJ3B6gxWZ7A6g9UZrM5gdQarM1idweoMVmewOoPVGazOYHUGqzNYncHqDFZnsDqD1RmszmB1BqszWJ3B6gxWZ7A6g9UZrM5gdQarM1idweoMVmewOoPVGazOYHUGqzNYncHqDFZnsLpeB64GRgOvgNb/wNNpjY2NA4GaHHwAGBkrtgCXgGtAWw8DhwALgdlAbfwi5oUcPC/W6Q/MAOYD+4Hz8fzmH0OnAWuBMcAZYBfwOMuyn8Qh8afPwOV49AOWAlfisQP4KIbWAXuBr8CeLMtaOlqvuqOF8aZjwHFgJXAX2Ag0C6D5l7MdmAmsz7LsZlfrlxol2uIYz4+j1fG6sw9ZpFHA9Tjhp5bCUsbOXwZ6d5yUixIcIhOA08CqLMuudvdN5YzDP4BNQFMc1wOKOX83CTgB1JeDpeC/9wiQn7EXgTkFxu/aOD/y0ehZuTsveqU7CtwBDpb5vkHAOWB5ESwVXpq3AcOBJd1cvypGnfw8eFh0p5Wc8flhsQK4Hb/P/LrE+stirD9ZwT4rnvy8A7YA+0qsNxjYEENjRaWYrZ0FhgKTu1hnK3AoPmCPg/M2Azs7+dswYFaMDBWXCnwrtlXXwd/WxSQqyfQ15QT+MLDmr2V9Y4p4KtVOUoKb4jiuabesPmZ/n1LtJCU4nyjll9m57ZYtjjltslLf0zXH7+UTY/z4uCL+t+D8AjIxXk+Jk/F7yh2kBrfGFW8sMD3uEZOmuM1/BIyIb/pBbwDfj+dxwJPUG1eAn8bzW+Bb6o0rwM/j+YVg2xLwF+C9CpzyDrh9+UT9XvKtAr8ASJF/F9PufdsAAAAASUVORK5CYII=" alt="img">
+                    </a>
+                </div>
+                <div class="banner__xlsocial">
+                    <ul class="banner__soci d-grid justify-content-center">
+                        <li><a href="/https://www.facebook.com/academy.innovative/"><i>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+                            </svg>
+                        </i></a></li>
+                        <li><a href="/https://twitter.com/innovative321">
+                            <i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                            </svg></i>
+                        </a></li>
+                        <li><a href="/https://www.linkedin.com/in/innovative-academy/">
+                            <i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"></path>
+                            </svg></i>
+                        </a></li>
+                        <li><a href="/https://goo.gl/CKZey1">
+                            <i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"></path>
+                            </svg></i>
+                        </a></li>
+                        <li><a href="/https://www.instagram.com/innovativeacademy.in/">
+                            <i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+                            </svg></i>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        </div>
+        <div class="marquee-wrapper text-slider">
+            <div class="marquee-inner ">
+                <div class="rfm-marquee-container " style="--pause-on-hover: running; --pause-on-click: running; --width: 100%; --transform: none;">
+                    <div class="rfm-marquee" style="--play: running; --direction: normal; --duration: 58.46s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                        <div class="rfm-initial-child-container">
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>100% Placement Assistance</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Live Projects</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Expert Trainers</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Comprehensive Curriculum</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Hands On Training</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Flexible Timings</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>100% Placement Assistance</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Live Projects</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Expert Trainers</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Comprehensive Curriculum</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Hands On Training</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Flexible Timings</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- about -->
+        <section class="about__section pt-60 pb-40" id="about">
+            <div class="container">
+                <div class="personal__head text-center">
+                    <img src="../innovative Original New/assets/img/favicon.png" class="logo mb-30 " alt="star" >
+                    <p class="descrp animate__animated animate__fadeInUp animate__delay-2s">
+                        Welcome to Innovative Academy, your go-to destination for DevOps Training in Bangalore. 
+                        <br>Our specialized DevOps program is designed to provide comprehensive knowledge of DevOps tools, processes, and methodologies, giving you the hands-on experience necessary to excel in the fast-growing field of DevOps. 
+                    With 100% placement assistance and real-world project exposure, our training ensures that you are fully equipped to succeed in your DevOps career.
+                    </p>
+                    <div class="row g-4 align-items-lg-start align-items-center">
+                        <div class="col-lg-5"><div class="about__onethumb">
+                            <img src="./img/personlap.png" alt="Contact">
+                        </div></div>
+                        <div class="col-lg-7">
+                            <div class="contact__section"><div class="container">
+                                <div class="contact__box"><div class="replay__box cmn__bg">
+                                        <h3 class="animate__animated animate__zoomIn animate__delay-2s">Get 25% Discount</h3>
+                                        <p class="animate__animated animate__zoomIn animate__delay-2s">Get Ready to Launch Your Cloud Computing Career with Innovative Academy!</p>
+                                        <form action="Mail.php" class="row g-4 animate__animated animate__zoomIn animate__delay-3s">
+                                            <div class=" col-lg-12">
+                                                <input type="text" placeholder="Name" required>
+                                            </div>
+                                            <div class=" col-lg-12 ">
+                                                <input type="email" placeholder="Email" required>
+                                            </div>
+                                            <div class=" col-lg-12">
+                                                <input type="number" placeholder="Number" required>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <input type="text" placeholder="Course" required>
+                                            </div>
+                                            <div class="d-flex fw-500 cmn--btn align-items-center gap-2 animate__animated animate__zoomIn animate__delay-3s">
+                                                <span class="get__text">Submit</span>
+                                                <span><i class=" fz-20"> 
+                                                    <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                                                    </svg> 
+                                                </i></span>
+                                            </div>
+                                        </form>
+                                </div></div>
+                            </div></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="marquee-wrapper text-slider">
+            <div class="marquee-inner ">
+                <div class="rfm-marquee-container " style="--pause-on-hover: running; --pause-on-click: running; --width: 100%; --transform: none;">
+                    <div class="rfm-marquee" style="--play: running; --direction: normal; --duration: 58.46s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                        <div class="rfm-initial-child-container">
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>100% Placement Assistance</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Live Projects</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Expert Trainers</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Comprehensive Curriculum</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Hands On Training</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Flexible Timings</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>100% Placement Assistance</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Live Projects</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Expert Trainers</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Comprehensive Curriculum</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Hands On Training</h4>
+                            </div>
+                            <div class="rfm-child" style="--transform: none;text-indent:15px;">
+                                <svg width="30" height="30" fill="black" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                                </svg>
+                                <h4>Flexible Timings</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- <div class="awoard__section"><div class="container">
+    <div class="award__wraper table-responsive " >
+        <table class="table w-100">
+            <tbody>
+                <tr><td><span class="table__title">Skills You will Learn</span></td>
+                    <td class="cusnoe"></td>
+                    <td class="text-end">
+                        <a href="#0" class="d-flex table__view justify-content-end align-items-center base gap-2">
+                            <span>View My Work</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr><td>Site Of The Day</td><td>Css &amp; Animation</td>
+                    <td class="text-end">2018</td>
+                </tr>
+                <tr><td>Best Business Model</td>
+                    <td>New Strategy</td>
+                    <td class="text-end">2019</td>
+                </tr>
+                <tr><td>Motion Graphic	</td>
+                    <td>3D &amp; Visual Effect	</td>
+                    <td class="text-end">2020</td>
+                </tr>
+                <tr><td>Video Design	</td>
+                    <td>Css &amp; Animation</td>
+                    <td class="text-end">2022</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+    <!-- SKILLS -->
+    <section class="project__section pt-60 pb-60" id="skills">
+        <div class="container"><div class="project__head text-center animate__animated animate__fadeInDown animate__delay-5s">
+            <span class="common__sub " >Technical Skills</span>
+            <h2>Industry Relevent Skills</h2>
+        </div>
+        <div class="project__wrapone">
+            <div class="project__item">
+                <div class="content d-flex align-items-center justify-content-between gap-2">
+                    <div class="left__cont">
+                        <span class="base mb-2 mb-xxl-3 d-block text-uppercase">Linux Fundamentals</span>
+                        <h5>Understanding Linux commands &amp; file systems</h5>
+                    </div>
+                    <div class="common__icon imgc">
+                        <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                            <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="project__item">
+                <div class="content d-flex align-items-center justify-content-between gap-2">
+                    <div class="left__cont">
+                        <span class="base mb-2 mb-xxl-3 d-block text-uppercase">Scripting (Bash/Python)</span>
+                        <h5>Automating tasks and writing scripts for deployments</h5>
+                    </div>
+                    <div class="common__icon imgc">
+                        <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                            <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="project__item " >
+                <div class="content d-flex align-items-center justify-content-between gap-2">
+                    <div class="left__cont">
+                        <span class="base mb-2 mb-xxl-3 d-block text-uppercase">Version Control (Git)</span>
+                        <h5>Enables tracking changes in code &amp; integrating with CI/CD pipelines.</h5>
+                    </div>
+                    <div class="common__icon imgc">
+                        <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                            <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="project__item " >
+                <div class="content d-flex align-items-center justify-content-between gap-2">
+                    <div class="left__cont">
+                        <span class="base mb-2 mb-xxl-3 d-block text-uppercase">CI/CD Pipelines</span>
+                        <h5>Continuous Integration &amp; Continuous Deployment</h5>
+                    </div>
+                    <div class="common__icon imgc">
+                        <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                            <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                            </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="project__item" >
+                <div class="content d-flex align-items-center justify-content-between gap-2">
+                    <div class="left__cont">
+                        <span class="base mb-2 mb-xxl-3 d-block text-uppercase">Containerization (Docker)</span>
+                        <h5>Encapsulates applications and their dependencies</h5>
+                    </div>
+                    <div class="common__icon imgc">
+                        <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                            <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                            </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="project__item " >
+                <div class="content d-flex align-items-center justify-content-between gap-2">
+                    <div class="left__cont">
+                        <span class="base mb-2 mb-xxl-3 d-block text-uppercase">Configuration Management (Ansible/Chef/Puppet)</span>
+                        <h5>Automates server setup, configuration, and management</h5>
+                    </div>
+                    <div class="common__icon imgc">
+                        <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                            <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="project__item " >
+                <div class="content d-flex align-items-center justify-content-between gap-2">
+                    <div class="left__cont">
+                        <span class="base mb-2 mb-xxl-3 d-block text-uppercase">Cloud Platforms (AWS/Azure/GCP)</span>
+                        <h5>deploying and managing apps on scalable cloud infrastructures.</h5>
+                    </div>
+                    <div class="common__icon imgc">
+                        <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                            <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="project__item " >
+                <div class="content d-flex align-items-center justify-content-between gap-2">
+                    <div class="left__cont">
+                        <span class="base mb-2 mb-xxl-3 d-block text-uppercase">Monitoring and Logging (Prometheus/Grafana/ELK)</span>
+                        <h5>Helps in tracking application performance and diagnosing</h5>
+                    </div>
+                    <div class="common__icon imgc">
+                        <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                            <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custom__hover">
+            <a class="hover__circle mauto " href="/protfolio">
+                <span class="box"><i>
+                    <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                    </svg></i>
+                    <span class="textmore"> Click for More Skills</span>
+                </span>
+            </a>
+        </div>
+    </div>
+    </section>
+
+    <!-- <section class="project__metting overhid pt-120 pb-120">
+        <div class="container"><div class="row g-4 align-items-center">
+            <div class="col-lg-7"><div class="pro__metting__content">        
+                <div class="project__head">
+                    <span class="common__sub">Need a Project?</span>
+                    <h2 class="fw-500 " >Let's work together. fixed a meeting</h2>
+                </div>
+                <div class="about__contbox__item pb-30 " >
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="i">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"></path>
+                        </svg>
+                    </span>
+                    <span class="box">
+                        <span class="ptext fz-18 mb-1 d-block"> Email </span>
+                        <a href="#0"> davidmatias333@gmail.com </a>
+                    </span>
+                </div>
+                <div class="about__contbox__item pb-30 pt-30  ">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="i">
+                            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"></path>
+                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                        </svg>
+                    </span>
+                    <span class="box">
+                        <span class="ptext fz-18 mb-1 d-block"> Location </span>
+                        <a href="#0"> Victoria Street London, England </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="pro__mettingthumb  ">
+                <img src="/assets/project-need-dee85a1f.png" alt="img">
+            </div>
+        </div>
+    </div>
+    </div>
+    </section> -->
+
+    <!-- syllabus -->
+    <section id="syllabus" class="service__section overhid pt-50  pb-50">
+        <div class="container"><div class="project__head text-center">
+            <span class="common__sub">Course Content </span>
+            <h2> Syllabus Covered in Devops</h2>
+        </div>
+        <div class="service__uniquewrap ">
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 01 </span>
+                    <div class="cont">
+                        <h5>DevOps</h5>
+                        <h2> Introduction </h2>
+                    </div>
+                </div>
+                <p class="pra">What is AWS<br>
+                    What is Continuous Integration Video<br>
+                    What is Continuous Delivery Video<br>
+                    Tools Prerequisites Setup</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 02 </span>
+                    <div class="cont">
+                        <h5>Tools</h5>
+                        <h2> Installation Checklist </h2>
+                    </div>
+                </div>
+                <p class="pra">Git CLI, Git Bash for Windows, Java – OpenJDK, Maven, Docker, Docker-Compose, 
+                    AWS CLI, Minikube, kubectl, Kops, Terraform CLI, Ansible</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 03 </span>
+                    <div class="cont">
+                        <h5>Linux</h5>
+                        <h2> Introduction </h2>
+                    </div>
+                </div>
+                <p class="pra">Commands and File systems,Vim editor, Redirections<br>
+                    File permissions, Sudo, Package Management<br>
+                    Configuring Networking File Services (NFS & SAMBA)<br>
+                    Configuring and Hosting Apache Webserver, Services<br>
+                    Process Management & Suitable Trouble-Shooting Concepts for Real-Time</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 04 </span>
+                    <div class="cont">
+                        <h5>Bash</h5>
+                        <h2> Scripting </h2>
+                    </div>
+                </div>
+                <p class="pra">First script, Quotes, User Input, Command Substitution<br>
+                    Command line arguments, Variables, Decision Making<br>
+                    Operators, Decision Making with AND, OR, Loops, SSH<br>
+                    Web setup script with Decision, Tomcat Setup etc</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 05 </span>
+                    <div class="cont">
+                        <h5>Networking</h5>
+                        <h2> Fundamentals </h2>
+                    </div>
+                </div>
+                <p class="pra">Understanding Networks & IP<br>
+                    ISO, Protocols, ports etc<br>
+                    Networking Commands</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 06 </span>
+                    <div class="cont">
+                        <h5>DevOps</h5>
+                        <h2> Aws solutions Architect</h2>
+                    </div>
+                </div>
+                <p class="pra">EC2, EBS, EFS<br>
+                    High-Availability with AWS Load Balancer<br>
+                    Auto-scaling Group, S3, RDS</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 07 </span>
+                    <div class="cont">
+                        <h5>Project - 1: AWS </h5>
+                        <h2>Cloud-Setup Lift & Shift</h2>
+                    </div>
+                </div>
+                <p class="pra">Security Group & Key pairs, EC2 Instances<br>
+                    Build and Deploy Artifacts, Load Balancer & DNS<br>
+                    Auto scaling Group, Validate & Summarize</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 08 </span>
+                    <div class="cont">
+                        <h5>Re-Architecting WebApp on</h5>
+                        <h2>AWS Cloud with PAAS &amp; SAAS</h2>
+                    </div>
+                </div>
+                <p class="pra">RDS,Elastic Cache, Amazon MQ, <br>
+                    DB Initialization, Build & Deploy Artifact, <br>
+                    Beanstalk, Cloud front, Validate and Summarize</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 09 </span>
+                    <div class="cont">
+                        <h5>AWS</h5>
+                        <h2> CI &amp; CD </h2>
+                    </div>
+                </div>
+                <p class="pra">Beanstalk, RDS & App Setup on Beanstalk<br>
+                    Code Commit, Code build, Build, Deploy & Code Pipeline</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 10 </span>
+                    <div class="cont">
+                        <h5>Built Tool for DevOps</h5>
+                        <h2> Git, Java &amp; Maven </h2>
+                    </div>
+                </div>
+                <p class="pra">Introduction, Versioning <br>
+                    Branches & More, Rollback, SSH <br>
+                    Introduction, Installing & setting with maven <br>
+                    Running tests and building artifacts</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 11 </span>
+                    <div class="cont">
+                        <h5>Jenkins </h5>
+                        <h2> Continuous Integration </h2>
+                    </div>
+                </div>
+                <p class="pra">Introduction, Installation, First Job, Tools in Jenkins <br>
+                    Plugins, Versioning & more, Nexus Software Repo Setup, Nexus Usage <br>
+                    Notifications, Code Analysis, Build Pipeline & Triggers</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 12 </span>
+                    <div class="cont">
+                        <h5>DevOps</h5>
+                        <h2>Automation With Ansible </h2>
+                    </div>
+                </div>
+                <p class="pra">Setup Ansible & Infra, Inventory & Ping Module <br>
+                    YAML & JSON, Ad Hoc Commands, Playbook & Modules, Fact Variables, Debug <br>
+                    Troubleshoot & Repeat, Ansible Configuration, Variables<br>
+                    Group & Host Variables, Decision Making, Loops, File, copy & template modules, Roles, Ansible for AWS 
+                </p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 13 </span>
+                    <div class="cont">
+                        <h5>Jenkins plus Ansible</h5>
+                        <h2>Continuous Delivery and Configuration Management</h2>
+                    </div>
+                </div>
+                <p class="pra">Introduction, Continuous Integration,<br> Launch Staging Server 
+                    Playbook for Tomcat Setup,<br> Playbook For Deployment
+                    Ansible on Jenkins, Prod Deployment</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 14 </span>
+                    <div class="cont">
+                        <h5>DevOps Tool</h5>
+                        <h2> Docker, Kubernetes</h2>
+                    </div>
+                </div>
+                <p class="pra">Introduction, Docker Setup, Docker commands & <br> concepts 
+                    Docker volumes, Building images, Containerizing project. <br>
+                    Introduction of Kubernetes, Kubernetes Setup 
+                    Pods,<br> Service, Replication Controller </p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 15 </span>
+                    <div class="cont">
+                        <h5>Java App Deployment</h5>
+                        <h2>on Kubernetes Cluster  </h2>
+                    </div>
+                </div>
+                <p class="pra">Introduction, Spin K8s Cluster, Source Code Overview, 
+                    Deploy Database On AWS RDS, Tomcat Deployment, Service & Init containers, 
+                    Kubernetes Troubleshooting Ideas, URL for Website & Wrap up </p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 16 </span>
+                    <div class="cont">
+                        <h5>DevOps</h5>
+                        <h2>Terraform Tutorials</h2>
+                    </div>
+                </div>
+                <p class="pra">Introduction, Variables – Exercise, <br>Provisioners – Exercise,  
+                    Output – Exercise,<br> Backend – Exercise, Multi_Resource – Exercise </p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="service__unique__item pb-40 pt-40 " >
+                <div class="left__service"><div class="serial__adjust">
+                    <span> 17 </span>
+                    <div class="cont">
+                        <h5>Tutorial</h5>
+                        <h2>CloudFormation Tool </h2>
+                    </div>
+                </div>
+                <p class="pra">Introduction, First Example, Intrinsic Function, Change Set, 
+                    More Intrinsic Functions, Multiple Resources, Parameters, 
+                    Mappings And Pseudo Parameters, Outputs, Init</p>
+                </div>
+                <div class="common__icon">
+                    <svg width="35" height="35" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+                        <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+                    </svg>
+                </div>
+            </div> 
+        </div>
+        </div>
+    </section>
+
+    <!-- job roles -->
+    <section class="process__section pt-60 pb-60">
+        <div class="container"><div class="project__head text-center">
+            <span class="common__sub  " >Job Roles</span>
+            <h2 class="fw-500  ">Opportunities you'll find</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="process__item">
+                    <h2 class="white mb-24">DevOps Architect</h2>
+                    <p class="mb-30 pra fz-18">Uses VPC, Lambda, Route 53, AWS ECS, Elastic Load Balancing, and other significant tools and technologies of AWS.</p>
+                    <ul>
+                        <li>Starting Salary Package with ₹15 – ₹24 LPA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="process__item">
+                    <h2 class="white mb-24">Cloud Architect</h2>
+                    <p class="mb-30 pra fz-18">Creates designs and builds documents for setting best standards and practices for cloud adoption.</p>
+                    <ul>
+                        <li>Starting Salary Package with ₹10 – ₹15 LPA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="process__item">
+                    <h2 class="white mb-24">Network Engineer</h2>
+                    <p class="mb-30 pra fz-18">Design, Implement, Troubleshoot network issues and maintain network infrastructures to ensure optimal performance and security.</p>
+                    <ul>
+                        <li>Starting Salary Package with ₹2 – ₹8.7 LPA</li>
+                    </ul>
+                </div>
+            </div>
+        </div><br>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="process__item">
+                    <h2 class="white mb-24">AWS DevOps Engineer</h2>
+                    <p class="mb-30 pra fz-18">Plans project deliverables and ensures high quality of products and their respective criteria as per the users.</p>
+                    <ul>
+                        <li>Starting Salary Package with ₹4 – ₹13.5 LPA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="process__item">
+                    <h2 class="white mb-24">Senior DevOps Engineer</h2>
+                    <p class="mb-30 pra fz-18">Records aspects of infrastructure as code using a range of tools like AWS CDK, Terraform, and CloudFormation.</p>
+                    <ul>
+                        <li>Starting Salary Package with ₹7 – ₹15 LPA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="process__item">
+                    <h2 class="white mb-24">Product Manager</h2>
+                    <p class="mb-30 pra fz-18">The Product Manager is from the operations side of DevOps and is an expert in organization and management.
+                      <br> A Project Manager oversees planning, execution, and delivery of projects.
+                    </p>
+                    <ul>
+                        <li>Starting Salary Package with ₹10 – ₹15 LPA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="testimonial__section pt-60 pb-60" id="testimonial">
+        <div class="container"><div class="project__head text-center">
+            <span class="common__sub" >Testimonial</span>
+            <h2 class="fw-500">Achievers of Innovative Academy</h2>
+        </div>
+        <div class="testimonial__v1wrap pb-60">
+            <div class="row justify-content-center">
+                <div class="col-lg-8"><div class="swiper testimonial__slidewrap">
+                    <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+                        <div class="swiper-wrapper" style="transition-duration: 3000ms; transform: translate3d(-1292px, 0px, 0px);">
+                            <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" style="width: 596px; margin-right: 50px;">
+                                <div class="test__slide swiper-slide"><div>
+                                        <ul class="d-flex mb-40 align-items-center gap-2">
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20">
+                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20">
+                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20">
+                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20">
+                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20">
+                                                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"></path>
+                                                </svg>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <p>I had a very good experience of learning in this Institution.I joined for DevOps bootcamp for 6 months which is so helpful for future.
+                                        The management and facilities are very good at everything .I enjoyed lot by joing this Institution</p>
+                                    <h4 class="base mb-2">Amruthavarshini R</h4>
+                                    <span class="fz-18 ptext">3 weeks ago</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 596px; margin-right: 50px;">
+                                <div class="test__slide swiper-slide"><div>
+                                    <ul class="d-flex mb-40 align-items-center gap-2">
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                    </ul>
+                                </div>
+                                <p>I recently completed my DevOps Bootcamp including kuberneys,github etc. from Innovative Academy in online mode.
+                                    The flexible classes schedule by corporate experts were some of the benefits I received.
+                                    Thankyou for such a valuable training!!</p>
+                                <h4 class="base mb-2">kiyara sharma</h4>
+                                <span class="fz-18 ptext">6 months ago</span>
+                            </div>
+                            </div>
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 596px; margin-right: 50px;">
+                                <div class="test__slide swiper-slide"><div>
+                                    <ul class="d-flex mb-40 align-items-center gap-2">
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="ratting fz-20"><path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"></path></svg></li>
+                                    </ul>
+                                </div>
+                                <p>I recently completed my DevOps BootCamp job-oriented training at Innovative Academy which secured my Cloud Computing Career✨</p>
+                                <h4 class="base mb-2">Grace Misba</h4>
+                                <span class="fz-18 ptext">3 months ago</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination3 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+                        <span class="swiper-pagination-bullet"></span>
+                        <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                        <span class="swiper-pagination-bullet"></span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="quote">
+                <img src="./img/review.png" alt="img">
+            </div>
+            <div class="man1"><img src="./img/stud2.png" alt="img"></div>
+            <div class="man2"><img src="./img/stud1.png" alt="img"></div>
+            <div class="man3"><img src="./img/stud3.png" alt="img"></div>
+            <div class="test__shape">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAABOCAYAAAB7VKutAAAEXElEQVR4nO2b0XHaQBCG/2R49INSQGbkCoJf/BpRgXEF4ArAFRAqiF2BoQLjCqzXPNmpILIr8EwayFzmX89yCHRCsnTi+GcYyXCSuY/dvb2906dff78icI0B3AG4+hw6CQAXcnKEAfR5fA4dRgIgBpCdn7wGD2PIY4qjm7zHiyUCh9FXLhK8ZYx5TOWNkGGsuQgChrHhIggYxtooIuq19nXa1YL/faG/RagwMgA/7DdDzzPWdIShdIShdIShFBqMsco8NxTSaBKzogV7SBWFZBkzHnNBICAYsXKP+bZGocDQVpFtaxQCDCerQCAwnKwCAcBwtgoEAOORx3mRVeBA84w+X99pGUbfAPwE8GLWR+w6hugQYCTseEIIUU6bofV3xhiy1BbT1bVW0+EJ40FsfZbxc/NaAXhQ19gWY9pemgUkdBBGwtEhUe+98RdO+Roy7TYdHWyJFQbKPaGY6wcGSFfcxFjASEEQACvL/2M1lO4KmsYSTukqI4I59d0ybEswEG4B3PDc1iPbmk5eOdzfuM4TIXq7JSFmx6RzGTv3hbXLPBAz1bYwp6AErtHIRxgT/loJv6zp2Nmu2SZjgBR4r11yCqUVT2OfYIg13NB8F/TrbZagr7vn+Vx1zknnJ68CLvYlZiTsUKRcIjcxytETLSPl6FFWfd7Di/0ZE1pExA6dlQDxk53JHANmnmTnzkvbMGZ0C9DEBwUuYV87lTyhZJzQGvF81SaMmQp687wVrh2aqPZXFUDEagRK24IxrABiZFlTqYBpSQLv0gTSNmDE9HXsCUKG2LLX2pqoePP/nm3AmBFI2iKIWFumDK9Nw9CVpzLRv24QMnrdnp+8vidzTcOQOUZhPVJpViOISM1WN7YlND1rFRi/HdpGavhEDSBg5SUbw3hbU/iiXEJS7D7bXhfMTVx0RxfdWudoGoZA6G/5XCpYU5WaV0mooFwjKbpf0zFDcoKRVa6LCOCJrhBxan1WEURslQF2gm3aMlJWqAyMP/w74peOVJt5ifnJNgmI2NXC2ogZY7rLxKpl1gUB1izYlPguXSysrXR8yqrVgK4g53WAmKk8Ylkm5rRZEH6rqfMiHSixz1B8KCtqCYdOKf1f7gO662utEROpRzXfKVMcWlOXLUMvBIGJ2U3BNTvVRRiRVdzJ6BbPVW/cNRg6NoCJWVH13FldgWFP2spW0J3UhQA6YbY6VYtKp3WDgOeWYa+zphWLv4XyEYbUSGWDScaRokrh10k+wbCn70Ur7rXLBxg2BLCQ47QprU61CSMPQp0z19JqA4Z3EERNwvAWgqgJGN5DEH0kjJjlPe8hiD4CRt72RK8hiOqCEbG2eeGwPdFbVYWREMBYuULjyVJd2gdGpCrbnXOFXXKFkecGUFawqqO40rZ2wdAA+pYbPHfdCvJkw+irOJBYn6Xcob/oWixwVY+/vnnsYGg9qyEWcNAAtHrqKWBwlvigHlc4eABaPVaP5EGVRqfMXgnAP8NrMTIubCCSAAAAAElFTkSuQmCC" alt="img">
+            </div>
+        </div>
+        <div class="sponsor__area pt-120">
+            <h4 class="sponsor__title" >More than 100+ companies trusted us worldwide</h4>
+            <div class="swiper sponsor__wrap">
+                <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 99.2px; margin-right: 50px;">
+                            <div class="swiper-wrapper">
+                                <div class="sponsor__slide swiper-slide">
+                                    <img src="data:image/png;base64,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" alt="img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 99.2px; margin-right: 50px;"><div class="swiper-wrapper">
+                            <div class="sponsor__slide swiper-slide">
+                                <img src="data:image/png;base64,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" alt="img">
+                            </div>
+                        </div></div>
+                        <div class="swiper-slide" data-swiper-slide-index="2" style="width: 99.2px; margin-right: 50px;">
+                            <div class="swiper-wrapper"><div class="sponsor__slide swiper-slide">
+                                <img src="data:image/png;base64,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" alt="img">
+                            </div></div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="3" style="width: 99.2px; margin-right: 50px;">
+                            <div class="swiper-wrapper"><div class="sponsor__slide swiper-slide">
+                                <img src="data:image/png;base64,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" alt="img">
+                            </div></div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="4" style="width: 99.2px; margin-right: 50px;">
+                            <div class="swiper-wrapper"><div class="sponsor__slide swiper-slide">
+                                <img src="data:image/png;base64,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" alt="img">
+                            </div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+    </section>
+
+    <section class="blog__section overhid pt-80 pb-80" id="blog">
+        <div class="container"><div class="row g-4">
+            <div class="col-xl-4 col-lg-3"><div class="project__head">
+                <span class="common__sub  " >Our Blogs</span>
+                <h2 class="fw-500 mt-3">Recent Posts</h2>
+                <div class="blog__hoverbox">
+                    <a class="hover__circle wow" href="http://innovativeacademy.in/blog/">
+                        <span class="box"><i>
+                            <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                            </svg>
+                        </i><span class="textmore"> Click More Blogs </span>
+                        </span>
+                    </a>
+                </div>
+            </div></div>
+            <div class="col-xl-8 col-lg-9">
+                <div class="blog__rightwrap"><div class="service__uniquewrap">
+                    <div class="service__unique__item pb-40 pt-40  " >
+                        <div class="left__service"><div class="serial__adjust">
+                            <div class="cont">
+                                <span class="dates"> March 19, 2025 </span>
+                                <h3><a href="/https://innovativeacademy.in/blog/master-aws-devops-with-innovative-academy-your-gateway-to-cloud-excellence/"> 
+                                    Master AWS DevOps: Your Gateway to Cloud Excellence
+                                </a></h3>
+                            </div>
+                        </div>
+                        <div class="opa__thumb imgc">
+                            <img src="./img/devops-blog1.PNG" alt="img-opa">
+                        </div>
+                    </div>
+                    <div class="common__icon imgc">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="i">
+                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"></path>
+                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                        </svg>
+                    </div>
+                    </div>
+                    <div class="service__unique__item pb-40 pt-40  " >
+                        <div class="left__service"><div class="serial__adjust"><div class="cont">
+                            <span class="dates"> December 27, 2024 </span>
+                            <h3><a href="https://innovativeacademy.in/blog/how-is-the-2025-market-for-devops-professionals-what-can-a-fresher-and-professional-expect/">
+                                How is the 2025 Market for DevOps Professionals</a></h3>
+                        </div></div>
+                        <div class="opa__thumb imgc">
+                            <img src="./img/devops-blog2.PNG" alt="img-opa">
+                        </div></div>
+                        <div class="common__icon imgc">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="i">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"></path>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service__unique__item pb-40 pt-40" >
+                        <div class="left__service"><div class="serial__adjust">
+                            <div class="cont">
+                                <span class="dates"> March 04, 2025 </span>
+                                <h3><a href="https://innovativeacademy.in/blog/top-online-devops-bootcamp-2025-transform-your-career-with-innovative-academy/">
+                                    Top Online DevOps Bootcamp 2025 – Transform Your Career with Innovative</a></h3>
+                            </div>
+                        </div>
+                        <div class="opa__thumb imgc">
+                            <img src="./img/devops-blog3.PNG" alt="img-opa">
+                        </div>
+                        </div>
+                        <div class="common__icon imgc">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="i">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"></path>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div></div>
+            </div>
+        </div></div>
+    </section>
+                         
+    <footer class="footer__section" id="contact">
+        <div class="container"><div class="footer__top pt-80 pb-80">
+            <div class="fl">Get In Touch</div>
+            <div class="row g-4"><div class="col-lg-6">
+                <div class="get__content">
+                    <p>We are an education corporate pioneering the growth of IT and IMS training. We have been able to set standards by adopting practices based on quality, commitment, and the zeal to make success a habit</p>
+                    <a href="/">info@innovativeacademy.in</a>
+                </div>
+            </div>
+            <div class="col-lg-6"><div class="get__rightcontetn"><div class="row g-4">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <a class="social__footer" href="/https://www.facebook.com/academy.innovative/">Facebook<i>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                        </svg></i>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <a class="social__footer" href="/https://www.instagram.com/innovativeacademy.in/">Instagram<i>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                        </svg>
+                    </i></a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <a class="social__footer" href="/https://www.linkedin.com/in/innovative-academy/">linkedin<i>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                        </svg>
+                    </i></a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <a class="social__footer" href="/https://twitter.com/innovative321">Twitter<i>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                        </svg>
+                    </i></a>
+                </div>
+            </div></div></div></div>
+        </div></div>
+        <div class="footer__bottom cmn__bg"><div class="container">
+            <div class="copyright">
+                <p class="white">Copyright © 2025 <a class="base" href="https://www.innovativeacademy.in">Innovative Academy.</a> All rights reserved.</p>
+                <a class="toparrow" href="#"><i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"></path>
+                    </svg>
+                </i></a>
+            </div>
+        </div></div>
+    </footer>
+</div>
+</body>
+
+</html>

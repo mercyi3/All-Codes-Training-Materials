@@ -1,0 +1,44 @@
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-150px * 7));
+  }
+}
+.slid {
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 255.125);
+  height: 100%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
+.slid::before, .slid::after {
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+  content: "";
+  height: auto;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+.slid::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.slid::before {
+  left: 0;
+  top: 0;
+}
+.slid .slide-track {
+  animation: scroll 40s linear infinite;
+  display: flex;
+  width: calc(250px * 14);
+}
+.slid .slide {
+  height: auto;
+  width: auto;
+}

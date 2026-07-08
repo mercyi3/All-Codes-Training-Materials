@@ -1,0 +1,2 @@
+cd "c:\Users\thero\Desktop\C programs\Cpp\" ; if ($?) { g++ namespac.cpp -o namespac } ; if ($?) { 
+cd "c:\Users\thero\Desktop\C programs\Cpp\" ; if ($?) { g++ namespac.cpp -o namespac } ; if ($?) { 

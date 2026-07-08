@@ -1,0 +1,22 @@
+list1 = [1,2,3,4,5,2]
+list2 = ["Red", "Green", "Blue"]
+
+print(list1,"\n",list2)
+list2.append("Purple")
+print("Append: ", list2)
+list1.insert(2, 4)
+print("Insert: ", list1)
+list1.extend(list2)
+print(list1)
+list1.pop()
+print(list1)
+list1.remove(4)
+print(list1)
+count = list1.count(2)
+print("Count: ", count )
+list1.clear()
+print(list1)
+# list2.sort()
+# print("Sort: ",list2)
+list1 = list2.copy()
+print(list1)

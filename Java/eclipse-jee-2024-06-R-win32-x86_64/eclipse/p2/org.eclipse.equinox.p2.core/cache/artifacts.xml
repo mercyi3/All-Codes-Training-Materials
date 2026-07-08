@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='download cache' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='2'>
+    <property name='p2.system' value='true'/>
+    <property name='p2.timestamp' value='1762928571482'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='18'>
+    <artifact classifier='binary' id='org.eclipse.rcp_root' version='4.35.0.v20250228-0640'>
+      <properties size='1'>
+        <property name='download.size' value='20747'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.springframework.boot.ide.main.feature_root' version='4.32.0.202509051843'>
+      <properties size='1'>
+        <property name='download.size' value='4303'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.springframework.boot.ide.main.feature_root' version='4.32.2.202511091838'>
+      <properties size='1'>
+        <property name='download.size' value='4303'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.eclipse.rcp_root' version='4.37.0.v20250905-0730'>
+      <properties size='1'>
+        <property name='download.size' value='20747'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.eclipse.platform_root' version='4.32.0.v20240601-0610'>
+      <properties size='1'>
+        <property name='download.size' value='196'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.eclipse.rcp_root' version='4.32.0.v20240601-0610'>
+      <properties size='1'>
+        <property name='download.size' value='20740'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.springframework.boot.ide.main.feature_root' version='4.30.0.202504180233'>
+      <properties size='1'>
+        <property name='download.size' value='4303'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.eclipse.rcp_root' version='4.36.0.v20250528-1830'>
+      <properties size='1'>
+        <property name='download.size' value='20747'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='epp.package.jee.executable.win32.win32.x86_64' version='4.37.0.20250905-1455'>
+      <properties size='1'>
+        <property name='download.size' value='287342'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.eclipse.platform_root' version='4.36.0.v20250528-2229'>
+      <properties size='1'>
+        <property name='download.size' value='196'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.springframework.boot.ide.main.feature_root' version='4.31.0.202506052059'>
+      <properties size='1'>
+        <property name='download.size' value='4303'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.eclipse.platform_root' version='4.37.0.v20250905-0730'>
+      <properties size='1'>
+        <property name='download.size' value='196'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.eclipse.platform_root' version='4.35.0.v20250228-0640'>
+      <properties size='1'>
+        <property name='download.size' value='196'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.springframework.boot.ide.main.feature_root' version='4.28.1.202502131954'>
+      <properties size='1'>
+        <property name='download.size' value='4303'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='org.springframework.boot.ide.main.feature_root' version='4.32.1.202510250743'>
+      <properties size='1'>
+        <property name='download.size' value='4303'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='epp.package.jee.executable.win32.win32.x86_64' version='4.32.0.20240606-1231'>
+      <properties size='1'>
+        <property name='download.size' value='285301'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='epp.package.jee.executable.win32.win32.x86_64' version='4.35.0.20250306-0811'>
+      <properties size='1'>
+        <property name='download.size' value='287394'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='epp.package.jee.executable.win32.win32.x86_64' version='4.36.0.20250605-1300'>
+      <properties size='1'>
+        <property name='download.size' value='287386'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

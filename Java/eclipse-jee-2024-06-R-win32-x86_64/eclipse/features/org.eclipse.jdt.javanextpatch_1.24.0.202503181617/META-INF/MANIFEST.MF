@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Created-By: 11.0.24 (Eclipse Adoptium)
+
+Name: feature.xml
+SHA-256-Digest: vXjeNVNPY9vrsul828ZDivWPqiSqwASVvpAwxfcAwXo=
+
+Name: feature.properties
+SHA-256-Digest: QFfHVzepgNPC/1RP8xSSfWF7TJzXwMCJpuRhpIM8mTw=
+
+Name: license.html
+SHA-256-Digest: Dv5NbrV590iFepPFp4HDAA9w8zkHSynRW5FCE+FLHVM=
+

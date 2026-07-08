@@ -1,0 +1,269 @@
+********************** Spring Boot HTTP Methods **********************
+
+1. HelloApp.java
+
+@RestController
+public class HelloApp 
+{
+	@RequestMapping("/")
+	String hello()
+	{
+		return "Home Page";
+	}
+	
+	@RequestMapping("/about")
+	String about()
+	{
+		return "About Page";
+	}
+}
+
+2. Product.java:(GET Method)
+
+import Laambok.Data;
+
+@Data
+@AllArgsConstructor
+public class Product 
+{	
+	private int prodId;
+	private String prodName;
+	private int price;
+}
+
+3. ProductController.java:
+
+ @Autowired
+ ProductService services;
+
+@RestController
+public class ProductController
+{
+	@RequestMapping("/product")
+	public String getProducts()
+	{
+		return services.getProducts();
+	}
+}
+
+4. ProductService.java:
+
+@service
+public class ProductService
+{
+	List<Product> products = Arrays.asList(new Product(101, "IPhone", 50000),
+				new Product(102, "Samsung", 70000));
+	
+	public List<Product> getProducts()
+	{
+		return products;
+	}
+}
+
+
+5. ProductController.java:
+
+ @Autowired
+ ProductService services;
+
+@RestController
+public class ProductController
+{
+	@RequestMapping("/product")
+	public String getProducts()
+	{
+		return services.getProducts();
+	}
+
+	@RequestMapping("/product/{prodId}")
+	public Product getProductById(@PathVariable int prodId)
+	{
+		return services.getProductById(prodId);
+	}
+}
+
+6. ProductService.java:
+
+@service
+public class ProductService
+{
+	List<Product> products = Arrays.asList(new Product(101, "IPhone", 50000),
+				new Product(102, "Samsung", 70000));
+	
+	public List<Product> getProducts()
+	{
+		return products;
+	}
+
+	public Product getProductById(int prodId)
+	{
+		return products.stream().filter(p -> p.getProdId() == prodId)
+			.findFirst().get();
+	{
+}
+
+7. Adding products(POST method): ProductService.java:
+
+@service
+public class ProductService
+{
+	List<Product> products = new ArrayList<>(Arrays.asList(new Product(101, "IPhone", 50000),
+				new Product(102, "Samsung", 70000)));
+	
+	public List<Product> getProducts()
+	{
+		return products;
+	}
+
+	public Product getProductById(int prodId)
+	{
+		return products.stream().filter(p -> p.getProdId() == prodId)
+			.findFirst().get(); //.orElse(new Product(100, ));
+	}
+	
+	public void addProduct(Product prod)
+	{
+		products.add(prod);
+	}
+}
+
+8. ProductController.java:
+
+ @Autowired
+ ProductService services;
+
+@RestController
+public class ProductController
+{
+	@GetMapping("/products")
+	public String getProducts()
+	{
+		return services.getProducts();
+	}
+
+	@GetMapping("/products/{prodId}")
+	public Product getProductById(@PathVariable int prodId)
+	{
+		return services.getProductById(prodId);
+	}
+	
+	@PostMapping("/products")
+	public void addProduct(@RequestBody Product prod)
+	{
+		s.o.p(prod);
+		services.addProduct(prod);
+	}
+}
+
+8. Product.java
+
+right click- generate toString for all private variables.
+
+9. PUT method: Updating product details..
+ProductController.java:
+
+@PutMapping("/products")
+public void updateProduct(@RequestBody Product prod)
+{	
+	s.o.p("Updated");
+	services.updateProduct(prod);
+}
+
+10. in ProductService.java :
+
+public void updateProduct(Product prod)
+{
+	int index=0;
+	for(i=0; i<products.size(); i++)
+	{
+	   if(products.get(i).getProdId() == prod.getProdId())
+	   {
+		index = i;
+	   }
+	}
+	products.set(index, prod);
+}
+
+11. DELETE Method : Controller:
+
+@DeleteMapping("/products/{prodId}")
+public void deleteProduct(@PathVariable int prod)
+{
+	services.deleteProduct(prodId);
+}
+
+12. Service class:
+
+public void deleteProduct(int prodId)
+{
+	int index=0;
+	for(i=0; i<products.size(); i++)
+	{
+	   if(products.get(i).getProdId() == prodId)
+	   {
+		index = i;
+	   }
+	}
+	products.remove(index);
+}
+
+
+*********************** SpringBoot JDBC *******************************
+
+1. application.properties:
+
+spring.datasource.url=jdbc:mysql://localhost:3306/springbootdb  
+spring.datasource.username=root  
+spring.datasource.password=mysql  
+spring.jpa.hibernate.ddl-auto=create-drop 
+spring.jpa.show-sql = true //to show sql query
+
+2. ProductRepo.java(interface)
+
+@Repository
+public interface ProductRepo extends JpaRepository<Product, Integer>
+{
+
+}
+
+3. ProductSevrvice.java
+
+@Autowired
+ProductRepo repo;
+
+public List<Product> getProducts() 
+{
+	return repo.findAll();
+}
+public Product getProductById(int prodId) 
+{
+	return repo.findById(prodId).orElse(new Product());
+}
+public void addProduct(Product prod) 
+{
+	repo.save(prod);
+}
+public void updateProduct(Product prod)
+{
+	repo.save(prod);
+}
+public void deleteProduct(int prod) 
+{
+	repo.deleteById(prodId);
+}
+
+4. Product.java
+
+@Component
+@Entity //add annotation to create table 
+public class Product
+{
+	@Id // primary key
+	private int prodId; 
+}
+
+**************************** Hibernate *****************************
+
+
+
+

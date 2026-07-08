@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<title>The jQuery Example</title>
+<script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+<script>
+   $(document).ready(function() {
+      $("#show").click(function(){
+         $("#box").fadeIn(1000);
+      });
+      $("#hide").click(function(){
+         $("#box").fadeOut(1000);
+      });
+   });
+</script>
+<style>
+   button{cursor:pointer;}
+   #box{margin-bottom:5px;padding:12px;height:100px; width:150px; background-color:#9c9cff;}
+</style>
+</head>
+<body>
+   <p>Click on fadeOut and fadeIn buttons to see the result:</p>
+
+   <button id="hide">fadeOut Box</button>
+   <button id="show">fadeIn Box</button>
+   <div id="box">This is Box</div>
+</body>
+</html>

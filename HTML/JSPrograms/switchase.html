@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case</title>
+</head>
+<body>
+    <h1><ol>
+        <li>Chappati - 20 Rs</li>
+        <li>Veg Rice - 80 Rs</li>
+        <li>Chicken Rice - 150 Rs</li>
+    </ol></h1>
+    <button onclick="option()">Option</button>
+    <h2 id="selected"></h2>
+    <script>
+        function option() {
+            var op =prompt("Select Option:") //user input 2
+        switch(op)
+        {
+            case "1":
+                document.getElementById("selected").innerHTML =
+                "You have selected Chappathi"
+                break; //jumping statement 
+            case "2":
+                document.getElementById("selected").innerHTML =
+                 "You have selected Veg Rice"
+                break;
+            case "3":
+                document.getElementById("selected").innerHTML =
+                "You have selected Chicken Rice"
+                break;
+            default:
+                 document.getElementById("selected").innerHTML =
+                "Not valid Option..."
+        }
+    }
+    </script>
+</body>
+</html>

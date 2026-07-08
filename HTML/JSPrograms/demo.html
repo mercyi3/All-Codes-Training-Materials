@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branching</title>
+</head>
+<body>
+    <script>
+        //if num is divisible by 3, 5, 9
+        var num = 45;
+        if(num%3==0)
+        {
+            if(num % 5 ==0)
+            {
+                if(num % 9 == 0)
+                {
+                    document.write("<h1> Divisible by 3, 5 & 9")
+                }
+            }
+            else{
+                document.write("<h1> Divisible by 3 not 5 ,9")
+            }   
+        }
+        else {
+            document.write("<h1> Not Divisible by 3, 5, 9")
+        }
+    </script>
+</body>
+</html>

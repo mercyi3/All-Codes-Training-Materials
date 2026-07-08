@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<title>The jQuery Example</title>
+<script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+<script>
+   $(document).ready(function() {
+      $("#button").click(function(){
+         $("#box").toggle(1000);
+      });
+   });
+</script>
+<style>
+   button{
+        margin:3px;
+        width:125px;
+        cursor:pointer;
+    }
+   #box{
+        margin:3px;
+        padding:12px; 
+        height:100px; 
+        width:100px;
+        background-color:#9c9cff;
+    }
+</style>
+</head>
+<body>
+   <p>Click on the Toggle Box button to see the box toggling:</p>
+
+   <div id="box">This is Box</div>
+   <button id="button">Toggle Box</button>
+</body>
+</html>

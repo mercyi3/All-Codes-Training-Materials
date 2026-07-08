@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  margin: 20px auto;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation: example linear infinite;
+  animation-duration: 5s;
+}
+@keyframes example {
+  /* from {background-color: red;}
+  to {background-color: green;} */
+
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  75% { background-color: blueviolet;}
+  100% {background-color: green;} 
+}
+</style>
+</head>
+<body>
+  <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+  <div></div>
+</body>
+</html>

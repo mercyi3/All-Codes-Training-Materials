@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Current Time: <span id="txt"></span></h1>  
+<script>
+    window.onload=function()
+    {
+        getTime();
+    }
+    function getTime()
+    {  
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();   //4
+        var s=today.getSeconds();
+
+       var d = today.getDate();
+       var mon = today.getMonth(); //0
+       var yr = today.getFullYear();
+        
+        m=checkTime(m);  //i=04
+        s=checkTime(s);  //4 => 04
+        document.getElementById('txt').innerHTML=h+":"+m+":"+s+"<br>"
+                                                + d +"-"+(mon+1)+"-"+yr; //8+1=9 
+        //setTimeout(function(){
+          //   getTime()
+         //},1000);  //1 sec
+    }
+    setInterval("getTime()",1000); //1sec
+    function checkTime(i) //i=4
+    {
+        if (i<10) //4<10
+        {
+            i="0" + i;  // "0"+4=04
+        }  
+        return i;
+    }
+</script> 
+</body>
+</html>

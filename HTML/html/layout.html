@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Layout Example</title>
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <style>
+	ul {
+		list-style-type: none;
+		overflow: hidden;
+		background-color: #333333;
+	   }
+	li {
+		float: left;
+	   }
+	li a {
+  		display: block;
+  		color: white;
+        padding: 16px;
+		text-decoration: none;
+	}
+	li a:hover {
+		background-color: #17dab9;
+		color:black;
+	}
+	</style>
+</head>
+<body>
+    <header style="background-color: #303030;  height: 80px; width: 100%">
+        <h1 style="font-size: 3vw; color: white;text-align: center; padding-top: 15px;">
+            Welcome to MyFirstWebpage</h1>
+     </header>
+
+     <nav style="background-color:#bcdeef;">
+        <h1 style="text-align: center;">Navgation Links</h1>
+        <ul>
+            <li ><a href="#">link1</a></li>
+            <li ><a href="#">link2</a></li>
+            <li ><a href="#">link3</a></li>
+            <li><a href="#">link4</a></li>
+        </ul>  
+    </nav>  
+    <main>
+        <section style="float: left; background-color:#ff7f50; width: 100%;">  
+            <h2>Introduction to HTML</h2>  
+            <p>HTML is a markup language which is used for creating attractive web pages with the help of styling, and which looks in a nice format on a web browser..</p>  
+        </section>  
+
+        <article style="float: left; width: 100%; background-color: #fff0f5;">  
+            <h2>History of Computer</h2>  
+            <p>Write your content here for the history of computer</p>  
+        </article>  
+
+        <aside style="float:right; background-color:#e6e6fa; width:50%">  
+            <h2>Sidebar information</h2>  
+            <p>This conatins information which will represent like a side bar for a webpage</p>  
+        </aside>
+    </main>
+    
+    <details style="background-color: #f5deb3; width:100%">  
+        <summary>This is visible section: click to show other details</summary>  
+        <p>This section only shows if user want to see it. </p>  
+     </details>  
+
+     <details>  
+        <summary>HTML is acronym for?</summary>  
+        <p style="color: blue; font-size: 20px;">Hypertext Markup Language</p>  
+     </details> 
+
+      <footer style="background-color: #f0f8ff; width: 100%; text-align: center;">  
+        <h3>Footer Example</h3>  
+        <p>© Copyright 2018-2020. </p>  
+    </footer>
+</body>
+</html>

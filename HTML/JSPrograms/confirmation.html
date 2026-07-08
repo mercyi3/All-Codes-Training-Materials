@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Event</title>
+</head>
+<body>
+    <form>
+        <input type="button" onclick="Demo()" value="want to confirm? ">
+    </form>
+    <h1 id="rezult"></h1>
+    <script>
+        function Demo() {
+            var z=confirm("Are you ready to confirm?"); // ok = true,  cancel = false
+            if(z==true){
+                document.getElementById("rezult").innerHTML="Confirmed";
+            }
+            else{
+                document.getElementById("rezult").innerHTML="Cancelled";
+            }
+        }
+    </script>
+</body>
+</html>

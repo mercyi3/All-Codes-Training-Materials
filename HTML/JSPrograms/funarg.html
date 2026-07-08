@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <h1 id="ans1"></h1>
+        <h1 id="ans2"></h1>
+      <button onclick="print()">Submit</button>
+        <script> 
+            var a=25,b=75; //global variable
+            var print;
+            print = () => //arrow function
+            { 
+                document.getElementById("ans1").innerHTML= demo(a, b);//100
+                document.getElementById("ans2").innerHTML= demo2(); //9
+            }  
+        </script>
+        <script type="text/javascript" src="./fun.js"></script>
+    </body>
+</html>

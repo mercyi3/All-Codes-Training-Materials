@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<title>The jQuery Example</title>
+<script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+<script>
+   $(document).ready(function() {
+      $("#show").click(function(){
+         $("#box").slideUp(1000);
+      });
+      $("#hide").click(function(){
+         $("#box").slideUp(1000);
+      });
+});
+</script>
+<style>
+   button{cursor:pointer;}
+   #box{margin-bottom:5px;padding:12px;height:100px; width:120px; background-color:#9c9cff;}
+</style>
+</head>
+<body>
+   <p>Click on slideUp and slideDown buttons to see the result:</p>
+
+   <div id="box">This is Box</div>
+   <button id="hide">slideUp </button>
+   <button id="show">slideDown </button>
+</body>
+</html>

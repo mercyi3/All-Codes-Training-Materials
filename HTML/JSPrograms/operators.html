@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators Part-2</title>
+</head>
+<body>
+    <script>
+        var a=6, b=5;
+        document.write("<h1>Logical and Bitwise Operator.....<br>")
+        document.write("Bitwise AND & :"+ ((a<=b)&(a++<=b)) + "<br>") // 6<=5(F) 7<=5(F) = 0
+        document.write("a :" + a + "<br>") //7
+        document.write("Logical AND(&&) :"+ ((a<=b)&&(a++<=b)) + "<br>") // 7>=5 (T) &&  = false
+        document.write("a :" + a + "<br>") //7
+
+        document.write("Bitwise OR | :"+ ((a>=b)|(a++<=b)) + "<br>") // 7>=5(T) | 7<=5(F) = true
+        document.write("a :" + a + "<br>") //8
+        document.write("Logical OR(||) :"+ ((a>=b)||(a++<=b)) + "<br>") // 8>=5(T) == true 
+        document.write("a :" + a + "<br><br>") //8
+
+        document.write("<h1>Conditional Operator.....<br>") //ternary (condition) ? true : false;
+        document.write("Maximun :"+ ((a>b)?a:b) + "<br>") // 8>5 = 8
+        document.write("Minimun :" + ((a<b)? a: b) + "<br>") //8 < 5 = 5
+        document.write("Equal? :"+ ((a==b)?true:false) + "<br>") // 8==5 == false
+        document.write("Yes/No :" + ((a!=b)? "yes": "No") + "<br>") // 8!=5 = yes
+
+    </script>
+</body>
+</html>

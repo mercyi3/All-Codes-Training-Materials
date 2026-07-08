@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<title>The jQuery Example</title>
+<script src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+<script>
+$(document).ready(function() {
+   $("#right").click(function(){
+      $("div").animate({left: '250px'}, 1000);
+   });
+   $("#left").click(function(){
+      $("div").animate({left: '0px'}, 5000);
+   });
+});
+</script>
+<style>
+   #left, #right{margin:3px;border:2px solid #666; height:30px; width:100px;cursor:pointer;}
+   #box{position:relative;margin:3px;padding:12px;border:2px solid #666;  height:100px; width:180px;}
+</style>
+</head>
+<body>
+   <p>Click on Left or Right button to see the result:</p>
+
+   <div id="box"  style="background-color:#9c9cff;">This is Box</div>
+   <button id="right" style="background-color:#fb7c7c;">Right Move</button>
+   <button id="left" style="background-color:#93ff93;">Left Move</button>
+</body>
+</html>

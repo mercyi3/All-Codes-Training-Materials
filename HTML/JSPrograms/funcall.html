@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Types</title>
+</head>
+<body>
+    <h1 id="ans"></h1>
+    <input type="button" onclick="add(8, 7)" value="call function"/>
+    
+    <script>
+        // with argument without return
+        function add(a , b) //a=8 , b=7
+        {
+            var c= a+b;
+            document.getElementById("ans").innerHTML= c; //pass the c to <h1>
+        }
+        // without return without argument
+        function table()
+        {
+            var num = prompt("Enter number: ") //5
+            for(var i=1; i<=10; i++)
+            {
+                document.write("<h1> "+i+" * "+num+" = "+(i*num)) //2*5=10
+            }
+        }
+        table() //function call
+    </script>  
+</body>
+</html>

@@ -1,0 +1,33 @@
+body{
+  text-align: center;
+  margin: 200px 10% 100% 100px;
+  border-bottom: 10px red;
+  padding: 2px 2px 2px 2px;
+}
+a {
+  align-items: center;
+  text-decoration: none;
+  max-width: 100%;
+}
+h1 {
+  color:blueviolet;
+  text-shadow:blueviolet 2px 2px ;
+  text-decoration: overline;
+  letter-spacing: 3px;
+}
+h2 {
+  color:darkorchid;
+  text-shadow:darkviolet 2px 2px;
+  text-decoration: line-through;
+}
+
+h3 {
+  color:darkmagenta;
+  text-shadow: darkorchid 2px 2px;
+  text-decoration: underline;
+}
+p {
+  direction: rtl;
+  letter-spacing: 2px;
+  text-indent: 50px;
+}

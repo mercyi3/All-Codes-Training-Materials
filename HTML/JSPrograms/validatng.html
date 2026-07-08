@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+<body>
+    <script> //with return with argument
+        const name= prompt("Enter Username :") //r0shni
+
+        document.write("<h1>"+ check(name))
+        
+        function check(input) //input=r0shni
+        { 
+	        for (const c of input) // c=r c=0 
+            { 
+		        if (!(c >= "a" && c <= "z") && !(c >= "A" && c <= "Z")) 
+                { 
+			        return "Not Valid Username"; 
+		        } 
+	        } 
+	        return "Valid Username"; 
+        } 
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Functions</title>
+</head>
+<body>
+    <script> //string is immutable(unchangable) data
+        var str1="  hello  ", str2="WOrld" //string literals --hello--
+        var str3 = new String("JavaScript"); //string object
+        var num = 97;  //int
+        var str= str1.concat(str2); //   hello  WOrld
+        document.write("<h1>"+ str +"<br>")
+        document.write( str1.charAt(4) +"<br>") //l
+        document.write(str1.length +"<br>") //9 total char
+        document.write(str.substr(3,8) +"<br>") //ello  WO
+        document.write(str.substring(3,6) +"<br>") //ell
+        document.write(str.endsWith("dl") +"<br>") //false
+        document.write(str.slice(3, 6) +"<br>")
+        document.write(str1.localeCompare(str2) +"<br>")
+        document.write(str1.toUpperCase() +"<br>")
+        document.write(str2.toLowerCase() +"<br>")
+        document.write(num.toString() +"<br>") //"97"
+        document.write(str1.trim()+"<br>")
+
+        document.write(str1,"<br>", str2, "<br>", str)
+    </script>
+</body>
+</html>

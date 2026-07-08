@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="each"></h1>
+    <h1 id="in"></h1>
+<script>
+        let answer = "";
+        const fruits = ["apple", "orange", "cherry"];
+        fruits.forEach(myFun);
+
+        function myFun(item, index) {
+                answer += index + ": " + item + "<br>"; 
+        }
+        document.getElementById("each").innerHTML = answer;
+        
+        const cars = ["BMW", "Volvo", "Saab", "Ford"];
+        let text = "";
+        for (let x in cars)  //x=0 x=1 x=3 x=4
+        {
+                text += cars[x] + "<br>";
+        }
+        document.getElementById("in").innerHTML = text;
+
+</script>
+</body>
+</html>

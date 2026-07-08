@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 400px;
+        height: 200px;
+        color: aliceblue;
+        background-color: blueviolet;
+        border: 2px solid black;
+        transform: skew(10deg, 5deg);
+        transition: 5s;
+        transform: translate(150px,250px);
+        /* transform: translate(150px, 250px);
+        transform: scale(2, 1.8);
+        transform: rotate(90deg);
+        transform: scale(2, 1.8);
+        transform: skew(10deg, 5deg);
+        transition: 5s;*/
+    }
+    div:hover {
+    width: 300px; height: 300px;
+    transform:matrix(360deg);
+    color: #000;
+    background-image: linear-gradient(to right, rgb(22, 203, 15) , yellow);
+    }
+</style>
+<body>
+    <h1>2D Transform</h1>
+    <div>
+        <p>The word "paragraph" comes from the Greek word paragraphos, which means
+        "line used to mark change of persons in a dialogue".
+        The first known use of the word "paragraph" was in the 15th century.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="demo()">Click1</button>
+    <button onclick="fun2()">Click2</button>
+    <script>
+        var b=25; //global variable  
+        // let b=7; , const c=6;
+
+        let d = 3.14; // float, double
+        const f = 'i';
+        const name ='Roshni'
+        function demo()
+        {
+            var a=20; //local variable
+            document.write("<h1>a is: ",a , "</h1>")
+        }
+        function fun2()
+        {
+            document.write("<h1>b is :"+b+"<br>")
+            document.write(a) //local var not accessible
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branching in JS</title>
+</head>
+<body>
+    <h1>Greater Number is: </h1>
+    <h1 id="answer"> </h1>
+    <script>
+        var a=240, b=220, c=130;
+        if(a>b) { //40>120
+            if(a>c) {
+                document.getElementById("answer").innerHTML = a; //40
+            }
+            else {
+                document.getElementById("answer").innerHTML=c;
+            }
+        }
+        else if(b>c) { // 120>130
+            document.getElementById("answer").innerHTML=b;
+        }
+        else {
+            document.getElementById("answer").innerHTML=c;
+        }                                                                      
+    </script>
+</body>
+</html>

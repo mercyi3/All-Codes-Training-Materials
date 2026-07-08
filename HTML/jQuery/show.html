@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<title>The jQuery Example</title>
+<script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#show").click(function(){
+           $("#box").show(2000);
+        });
+        $("#hide").click(function(){
+           $("#box").hide(1000);
+        });
+     });
+</script>
+<style>
+   button{
+    cursor:pointer;
+    }
+   #box{
+        margin-bottom:5px;
+        padding:12px;
+        height:100px; 
+        width:125px; 
+        background-color:#9c9cff;
+    }
+</style>
+</head>
+<body>
+   <p>Click on Show and Hide buttons to see the result:</p>
+
+   <div id="box">This is Box</div>
+   <button id="hide">Hide Box</button>
+   <button id="show">Show Box</button>
+</body>
+</html>

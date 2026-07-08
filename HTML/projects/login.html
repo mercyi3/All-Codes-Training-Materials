@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | Innovative Academy</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      transition: 0.3s ease;
+    }
+
+    .login-box:hover {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-box h2 {
+      margin-bottom: 30px;
+      text-align: center;
+      color: #333;
+    }
+
+    .login-box input[type="email"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.2s;
+    }
+
+    .login-box input:focus {
+      border-color: #6c63ff;
+      outline: none;
+    }
+
+    .login-box button {
+      width: 100%;
+      background: #6c63ff;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #5848d6;
+    }
+
+    .login-box .links {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .login-box .links a {
+      text-decoration: none;
+      color: #6c63ff;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .login-box .links a:hover {
+      color: #483dc4;
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 30px 20px;
+      }
+
+      .login-box h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Login to Your Account</h2>
+    <form action="/login" method="post">
+      <input type="email" name="email" placeholder="Email address" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div class="links">
+      <p><a href="#">Forgot Password?</a></p>
+      <p>Don't have an account? <a href="/register">Register</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

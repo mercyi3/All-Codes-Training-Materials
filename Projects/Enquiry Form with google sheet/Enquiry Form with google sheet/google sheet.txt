@@ -1,0 +1,50 @@
+let MySheet = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1HC_JTg30Z_gKjLva35qgQJdU2YtRlxkqiE76dVuXT1E/edit?gid=0#gid=0")
+
+let sheet = MySheet.getSheetByName("form")
+
+function doPost(e) {
+
+  let data = e.parameters;
+
+  sheet.appendRow([data.name[0], data.email[0], data.number[0]])
+
+  return ContentService.createTextOutput("Form Submitted")
+}
+
+---------------------------------------------------------------------------------------
+enquiry.gs
+
+function doPost(e) {
+  try {
+    let MySheet = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1So9wzKpUjBCDwXFoZbLxs_i28XUue0bT15tTHg0rLGQ/edit");
+    let sheet = MySheet.getSheetByName("Enquiry Data");
+
+    let data = e.parameters;
+    
+    // Log the received parameters
+    Logger.log(data);
+
+    // Append row with the received parameters, using optional chaining and default values to handle missing data
+    sheet.appendRow([
+      data.name?.[0] || '',
+      data.email?.[0] || '',
+      data.number?.[0] || '',
+      data.gender?.[0] || '',
+      data.qualification?.[0] || '',
+      data.experience?.[0] || '',
+      data.course?.[0] || '',
+      data.knows?.[0] || '',
+      data.classes?.[0] || '',
+      data.message?.[0] || ''
+    ]);
+
+    return ContentService.createTextOutput("<h1>Form Submitted").setMimeType(ContentService.MimeType.TEXT);
+  } catch (error) {
+    Logger.log('Error: ' + error.message);
+    return ContentService.createTextOutput("Error: " + error.message).setMimeType(ContentService.MimeType.TEXT);
+  }
+}
+
+---------------------------------------------------------------------------------
+
+

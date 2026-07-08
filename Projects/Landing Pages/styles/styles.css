@@ -1,0 +1,138 @@
+
+:root {
+    --blue: #3ea4f8;
+    --orange: #ff811b;
+  }
+.broucher-btn{
+    background-color: var(--orange);
+    margin: 20px 30px;
+    padding: 15px; 
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bolder;
+    /* cursor: pointer; */
+}
+hr{
+    margin: 0;
+}
+.widget-image{
+
+    display: inline;
+    margin: 10px 30px;
+}
+
+.overview {
+
+    margin: 0px 30px;
+    width: 95%;
+    height: 70%;
+}
+
+/* scrolling head */
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+@keyframes showTopText {
+  0% { transform: translate3d(0, 100%, 0); }
+  40%, 60% { transform: translate3d(0, 50%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+@keyframes showBottomText {
+  0% { transform: translate3d(0, -100%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+.animated-title {
+  color: #767676;
+  font-family: Roboto, Arial, sans-serif;
+  height: 90vmin;
+  left: 30%;
+  position: absolute;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  width: 90vmin;
+}
+.animated-title > div {
+  height: 50%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+.animated-title > div div {
+  font-size: 3vmin;
+  padding: 2vmin 0;
+  position: absolute;
+}
+.animated-title > div div span {
+  display: block;
+}
+.animated-title > div.text-top {
+  border-bottom: 1vmin solid #272727;
+  top: 0;
+  width: 91%;
+}
+.animated-title > div.text-top div {
+  animation: showTopText 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  bottom: 0;
+  transform: translate(0, 100%);
+}
+.animated-title > div.text-top div span:first-child {
+  color: #000;
+}
+.animated-title > div.text-bottom {
+  bottom: 0;
+}
+.animated-title > div.text-bottom div {
+  animation: showBottomText 0.5s;
+  animation-delay: 1.75s;
+  animation-fill-mode: forwards;
+  top: 0;
+  transform: translate(0, -100%);
+}
+.text-top p {
+
+    color: #1d1c1c;
+    font-weight: bold;
+}
+
+.text-bottom ul li {
+  color: #1d1c1c;
+  font-weight: bold;
+}
+
+.Devops-Banner{
+    margin-top: 70px;
+    width: 90%;
+    height: 90%;
+    padding: 0;
+}
+
+.col-6{
+  width: 50%;
+}
+
+.yellow-shape {
+
+  font-weight: bold;
+  text-shadow: 0 0 2px #1d1c1c;
+}
+
+@media (min-width: 300px) {
+ 
+  .animated-title {
+    margin-top: 90px;
+    left: 60%;
+  }
+  .Devops-Banner{
+        
+        margin: 17px;
+  }
+  /* .col-6 {
+      width: 100%;
+  } */
+}
+
+@media screen and (min-width: 300px) {
+
+}

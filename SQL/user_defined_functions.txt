@@ -1,0 +1,107 @@
+DELIMITER //
+
+CREATE FUNCTION CheckEvenOrOdd (num INT)
+RETURNS VARCHAR(40)
+DETERMINISTIC
+BEGIN
+    RETURN IF(num%2 = 0, 'Even Number', 'Odd Number');
+END;
+//
+
+DELIMITER ;
+
+
+Show Function status where DB="Database_name";
+
+
+SELECT CheckEvenOrOdd(10) AS result; -- Output: 'Even Number'
+
+SELECT CheckEvenOrOdd(11) AS result; -- Output: 'Odd Number'
+
+SELECT CheckEvenOrOdd(0) AS result;  -- Output: Even
+
+SELECT CheckEvenOrOdd(-5) AS result; -- Output: Odd
+
+SELECT CheckEvenOrOdd(-8) AS result; -- Output: Even
+
+______________________________________________________________________________
+
+DROP FUNCTION function_name;
+
+
+DELIMITER //
+
+CREATE FUNCTION CalculateCompoundInterest (principal DECIMAL(10, 2), rate DECIMAL(5, 2), time INT, n INT)
+RETURNS DECIMAL(10, 2)
+DETERMINISTIC
+BEGIN
+    DECLARE amount DECIMAL(10, 2);
+    SET amount = principal * POW((1 + rate / n), n * time);
+    RETURN amount;
+END;
+//
+
+DELIMITER ;
+
+
+SELECT CalculateCompoundInterest(1000, 0.05, 10, 4) AS amount;  -- Output: 1647.01 (approx)
+SELECT CalculateCompoundInterest(5000, 0.03, 5, 12) AS amount;  -- Output: 5837.34 (approx)
+
+
+____________________________________________________________________________
+
+
+
+ SHOW FUNCTION STATUS where db='practice';
++----------+----------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| Db       | Name           | Type     | Definer        | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
++----------+----------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| practice | CheckEvenOrOdd | FUNCTION | root@localhost | 2024-06-05 23:31:42 | 2024-06-05 23:31:42 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
++----------+----------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+1 row in set (0.01 sec)
+
+
+
+______________________________________________________________________________
+
+READS SQL DATA
+A function is declared READS SQL DATA if it reads data from the database but does not modify it.
+
+Example:
+
+DELIMITER //
+
+CREATE FUNCTION GetCustomerCount()
+RETURNS INT
+READS SQL DATA
+BEGIN
+    DECLARE customerCount INT;
+    SELECT COUNT(*) INTO customerCount FROM customers;
+    RETURN customerCount;
+END;
+//
+
+DELIMITER ;
+
+
+______________________________________________________________________________
+
+
+NO SQL
+A function is declared NO SQL if it does not perform any SQL operations.
+
+
+DELIMITER //
+
+CREATE FUNCTION CalculateSquare(num INT)
+RETURNS INT
+NO SQL
+BEGIN
+    RETURN num * num;
+END;
+//
+
+DELIMITER ;
+
+_________________________________________________________________________
+

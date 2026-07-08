@@ -1,0 +1,215 @@
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(100)
+);
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    amount DECIMAL(10, 2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+INSERT INTO customers (customer_id, customer_name) VALUES
+(1, 'John Doe'),
+(2, 'Jane Smith'),
+(3, 'Mike Johnson');
+
+INSERT INTO orders (order_id, customer_id, order_date, amount) VALUES
+(1, 1, '2023-01-15', 100.00),
+(2, 2, '2023-01-20', 150.00);
+
+
+*********************************************************************************
+
+SELECT customer_name
+FROM customers c
+WHERE EXISTS (
+    SELECT 1
+    FROM orders o
+    WHERE o.customer_id = c.customer_id
+);
+
+****************************************************************************
+
++---------------+
+| customer_name |
++---------------+
+| John Doe      |
+| Jane Smith    |
++---------------+
+
+
+******************************************************************************
+
+
+Detailed Explanation
+Subquery Evaluation:
+
+The subquery is evaluated for each row in the outer query.
+The subquery in EXISTS typically uses a correlation reference to the outer query. In the example above, o.customer_id = c.customer_id is the correlation reference.
+
+Return Value:
+
+The subquery does not return data to the outer query but rather a boolean value (TRUE or FALSE).
+When EXISTS is used, the subquery often includes a SELECT 1 because the actual value is not needed, only the existence of rows.
+
+Performance Considerations:
+
+EXISTS can be more efficient than using JOIN or IN in some cases because it stops processing as soon as it finds the first match.
+It is useful when the goal is to simply check for the presence of related rows without needing to retrieve the actual data.
+
+Conclusion
+
+The EXISTS operator is a powerful tool for filtering rows based on the existence of related data. It provides a simple and efficient way to perform existence checks, often resulting in cleaner and more performant SQL queries. Understanding how to use EXISTS and NOT EXISTS can help optimize database interactions and improve query performance in scenarios where existence checks are required
+
+
+
+
+______________________________________________________________________________________________________
+
+
+
+
+
+
+-- Create the customers table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50)
+);
+
+-- Create the orders table
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    order_date DATE,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+-- Insert sample data into customers
+INSERT INTO customers (customer_id, customer_name) VALUES
+(1, 'Alice'),
+(2, 'Bob'),
+(3, 'Charlie'),
+(4, 'David'),
+(5, 'Eve');
+
+-- Insert sample data into orders
+INSERT INTO orders (order_id, order_date, customer_id) VALUES
+(1, '2023-01-01', 1),
+(2, '2023-01-02', 1),
+(3, '2023-01-03', 2),
+(4, '2023-01-04', 3),
+(5, '2023-01-05', 5);
+
+
+
+-- 1. Find customers who have placed at least one order
+
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id);
+
+
+-- 2. Find customers who have not placed any orders
+
+SELECT customer_name
+FROM customers
+WHERE NOT EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id);
+
+-- 3. Find orders placed by 'Alice'
+
+SELECT order_id, order_date
+FROM orders
+WHERE EXISTS (SELECT 1 FROM customers WHERE customers.customer_id = orders.customer_id AND customers.customer_name = 'Alice');
+
+-- 4. Find customers who placed orders in 2023
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id AND YEAR(order_date) = 2023);
+
+-- 5. Find orders that belong to customers whose names start with 'A'
+SELECT order_id, order_date
+FROM orders
+WHERE EXISTS (SELECT 1 FROM customers WHERE customers.customer_id = orders.customer_id AND customers.customer_name LIKE 'A%');
+
+-- 6. Find customers with orders after '2023-01-02'
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id AND order_date > '2023-01-02');
+
+-- 7. Find customers with orders on '2023-01-04'
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id AND order_date = '2023-01-04');
+
+-- 8. Find orders made by customers who also placed orders on '2023-01-01'
+SELECT order_id, order_date
+FROM orders o1
+WHERE EXISTS (SELECT 1 FROM orders o2 WHERE o1.customer_id = o2.customer_id AND o2.order_date = '2023-01-01');
+
+-- 9. Find customers who placed more than one order
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders o1 WHERE customers.customer_id = o1.customer_id GROUP BY o1.customer_id HAVING COUNT(o1.order_id) > 1);
+
+-- 10. Find customers who placed orders either on '2023-01-01' or '2023-01-05'
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id AND (order_date = '2023-01-01' OR order_date = '2023-01-05'));
+
+-- 11. Find orders by customers who placed orders after '2023-01-03'
+SELECT order_id, order_date
+FROM orders
+WHERE EXISTS (SELECT 1 FROM orders o2 WHERE orders.customer_id = o2.customer_id AND o2.order_date > '2023-01-03');
+
+-- 12. Find customers who placed their first order on '2023-01-01'
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id AND order_date = '2023-01-01' ORDER BY order_date LIMIT 1);
+
+-- 13. Find customers who have never placed an order on '2023-01-01'
+SELECT customer_name
+FROM customers
+WHERE NOT EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id AND order_date = '2023-01-01');
+
+-- 14. Find customers with orders both on '2023-01-01' and '2023-01-05'
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders o1 WHERE customers.customer_id = o1.customer_id AND o1.order_date = '2023-01-01')
+AND EXISTS (SELECT 1 FROM orders o2 WHERE customers.customer_id = o2.customer_id AND o2.order_date = '2023-01-05');
+
+-- 15. Find customers who have placed exactly one order
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders o WHERE customers.customer_id = o.customer_id GROUP BY o.customer_id HAVING COUNT(o.order_id) = 1);
+
+-- 16. Find orders made by customers who have placed more than two orders
+SELECT order_id, order_date
+FROM orders
+WHERE EXISTS (SELECT 1 FROM orders o2 WHERE orders.customer_id = o2.customer_id GROUP BY o2.customer_id HAVING COUNT(o2.order_id) > 2);
+
+-- 17. Find customers who placed orders in both '2023-01-01' and '2023-01-02'
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders o1 WHERE customers.customer_id = o1.customer_id AND o1.order_date = '2023-01-01')
+AND EXISTS (SELECT 1 FROM orders o2 WHERE customers.customer_id = o2.customer_id AND o2.order_date = '2023-01-02');
+
+-- 18. Find customers who placed orders on weekends
+SELECT customer_name
+FROM customers
+WHERE EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id AND DAYOFWEEK(order_date) IN (1, 7));
+
+-- 19. Find customers with no orders in 2023
+SELECT customer_name
+FROM customers
+WHERE NOT EXISTS (SELECT 1 FROM orders WHERE customers.customer_id = orders.customer_id AND YEAR(order_date) = 2023);
+
+
+
+
+
+
+

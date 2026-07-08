@@ -1,0 +1,64 @@
+
+-- Create the sales table
+CREATE TABLE sales (
+    transaction_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    salesperson_name VARCHAR(50),
+    amount DECIMAL(10, 2)
+);
+
+-- Insert sample data into the sales table
+INSERT INTO sales (transaction_id, product_name, salesperson_name, amount) VALUES
+(1, 'Laptop', 'Alice', 1200.00),
+(2, 'Smartphone', 'Bob', 800.00),
+(3, 'Tablet', 'Alice', 500.00),
+(4, 'Laptop', 'Charlie', 1300.00),
+(5, 'Smartphone', 'Alice', 900.00),
+(6, 'Laptop', 'Bob', 1400.00),
+(7, 'Tablet', 'Charlie', 600.00),
+(8, 'Smartphone', 'Alice', 850.00);
+
+
+-- Total Sales Amount by Salesperson
+
+
+SELECT salesperson_name, SUM(amount) AS total_sales
+FROM sales
+GROUP BY salesperson_name;
+
+-- Average Sales Amount by Product
+
+
+SELECT product_name, AVG(amount) AS average_sales
+FROM sales
+GROUP BY product_name;
+
+-- Number of Sales Transactions by Salesperson
+
+
+SELECT salesperson_name, COUNT(*) AS num_transactions
+FROM sales
+GROUP BY salesperson_name;
+
+-- Maximum Sales Amount by Product
+
+SELECT product_name, MAX(amount) AS max_sales
+FROM sales
+GROUP BY product_name;
+
+
+-- Total Sales Amount by Salesperson and Product
+
+SELECT salesperson_name, product_name, SUM(amount) AS total_sales
+FROM sales
+GROUP BY salesperson_name, product_name;
+
+
+insert into sales values (9,'laptop','Alice',10000.00);
+
+insert into sales values (10,'laptop','Alice',1000.00);
+
+insert into sales values (11,'laptop','BoB',10000.00);
+
+insert into sales values (12,'laptop','Charlie',1000.00);
+

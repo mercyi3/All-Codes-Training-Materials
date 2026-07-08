@@ -1,0 +1,192 @@
+CREATE TABLE emp (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    department VARCHAR(100),
+    salary DECIMAL(10, 2)
+);
+
+
+INSERT INTO emp (name, age, department, salary) VALUES
+('Alice', 30, 'HR', 50000.00),
+('Bob', 25, 'Engineering', 70000.00),
+('Charlie', 28, 'Marketing', 60000.00),
+('David', 35, 'Engineering', 80000.00),
+('Eve', 40, 'HR', 55000.00);
+______________________________________________________________________________________
+
+SELECT name,
+       salary,
+       CASE
+           WHEN salary < 60000 THEN 'Low Salary'
+           WHEN salary BETWEEN 60000 AND 70000 THEN 'Medium Salary'
+           ELSE 'High Salary'
+       END AS salary_category
+FROM emp ;
+
+
+
+
+
+
+
+select name,salary,salary_category from (SELECT name,
+       salary,
+       CASE
+           WHEN salary < 60000 THEN 'Low Salary'
+           WHEN salary BETWEEN 60000 AND 70000 THEN 'Medium Salary'
+           ELSE 'High Salary'
+       END AS salary_category
+FROM emp) as table1 where salary_category='Medium Salary';
+
+________________________________________________________________________________________
+
+SELECT name,
+       age,
+       CASE
+           WHEN age < 30 THEN 'Young'
+           WHEN age BETWEEN 30 AND 40 THEN 'Middle-aged'
+           ELSE 'Senior'
+       END AS age_group
+FROM emp ;
+
+
+select name, age,age_group from (SELECT name,
+       age,
+       CASE
+           WHEN age < 30 THEN 'Young'
+           WHEN age BETWEEN 30 AND 40 THEN 'Middle-aged'
+           ELSE 'Senior'
+       END AS age_group
+FROM emp ) as table1 where age_group='Middle-aged';
+
+
+________________________________________________________________________________________
+
+SELECT name,
+       salary,
+       CASE
+           WHEN salary > (SELECT AVG(salary) FROM emp)THEN 'Above Average'
+           ELSE 'Below Average'
+       END AS salary_comparison
+FROM emp;
+
+__________________________________________________________________________________________
+
+
+SELECT name,
+       department,
+       salary,
+       CASE
+           WHEN department = 'Engineering' THEN 'Eligible for Bonus'
+           ELSE 'Not Eligible for Bonus'
+       END AS bonus_eligibility
+FROM emp ;
+__________________________________________________________________________________________
+
+select name, bonus_eligibility from (SELECT name,
+       department,
+       salary,
+       CASE
+           WHEN department = 'Engineering' THEN 'Eligible for Bonus'
+           ELSE 'Not Eligible for Bonus'
+       END AS bonus_eligibility
+FROM emp 
+) as table1 where bonus_eligibility='Not Eligible for Bonus'
+;
+
+
+
+__________________________________________________________________________________
+
+SELECT name,
+       age,
+       CASE
+           WHEN age < 30 THEN 'You are young and have a bright future ahead!'
+           WHEN age BETWEEN 30 AND 40 THEN 'You are at the prime of your career!'
+           ELSE 'You have a wealth of experience!'
+       END AS custom_message
+FROM emp;
+
+____________________________________________________________________________________
+
+
+
+
+
+
+
+
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    category VARCHAR(50),
+    price DECIMAL(10, 2),
+    stock_quantity INT
+);
+INSERT INTO products (product_id, product_name, category, price, stock_quantity) VALUES
+(1, 'Laptop', 'Electronics', 999.99, 50),
+(2, 'Headphones', 'Electronics', 199.99, 150),
+(3, 'Desk Chair', 'Furniture', 89.99, 100),
+(4, 'Coffee Table', 'Furniture', 59.99, 30),
+(5, 'Smartphone', 'Electronics', 699.99, 200),
+(6, 'Bookshelf', 'Furniture', 129.99, 20),
+(7, 'Mouse', 'Electronics', 49.99, 300),
+(8, 'Keyboard', 'Electronics', 79.99, 250),
+(9, 'Sofa', 'Furniture', 499.99, 10),
+(10, 'Lamp', 'Furniture', 39.99, 60);
+
+____________________________________________________________________________________
+
+SELECT product_name,
+       price,
+       CASE
+           WHEN price < 100 THEN 'Cheap'
+           WHEN price BETWEEN 100 AND 500 THEN 'Moderate'
+           ELSE 'Expensive'
+       END AS price_category
+FROM products;
+
+select product_name,price_category from(
+ SELECT product_name,
+       price,
+       CASE
+           WHEN price < 100 THEN 'Cheap'
+           WHEN price BETWEEN 100 AND 500 THEN 'Moderate'
+           ELSE 'Expensive'
+       END AS price_category
+ FROM products) as something where price_category='Moderate';
+
+____________________________________________________________________________________
+
+SELECT product_name,
+       stock_quantity,
+       CASE
+           WHEN stock_quantity < 50 THEN 'Low Stock'
+           WHEN stock_quantity BETWEEN 50 AND 200 THEN 'In Stock'
+           ELSE 'Overstocked'
+       END AS stock_status
+FROM products;
+
+
+_________________________________________________________________________
+SELECT product_name,
+       category,
+       price,
+       CASE
+           WHEN category = 'Electronics' THEN 'Eligible for Discount'
+           ELSE 'Not Eligible for Discount'
+       END AS discount_eligibility FROM products;
+
+
+__________________________________________________________________________
+SELECT product_name,
+       stock_quantity,
+       CASE
+           WHEN stock_quantity < 50 THEN 'Hurry! Limited stock available.'
+           WHEN stock_quantity BETWEEN 50 AND 200 THEN 'In stock and ready to ship.'
+           ELSE 'Plenty of stock available.'
+       END AS stock_message
+FROM products;
+
+____________________________________________________________________________________

@@ -1,0 +1,1323 @@
+ ************************  SELECT QUERIES:  ***************************
+
+1. Select customers from London with a rating greater than 100:
+
+SELECT * FROM customers WHERE city = 'London' AND rating > 100;
+
+2. Select salespeople with commission greater than 0.1 in London or New York:
+
+-> SELECT * FROM salespeople
+   WHERE commission > 0.1 AND city IN ('London', 'New York');
+
+3. Select orders placed on October 3rd, 1996 with an amount greater than 1000:
+
+-> SELECT * FROM orders
+   WHERE order_date = '1996-10-03' AND amount > 1000;
+
+4. Select customers with a rating of 200 and not from London:
+
+-> SELECT * FROM customers WHERE rating = 200 AND city <> 'London';
+
+5. Select orders placed by customer number 2008 with an amount greater than 1000:
+
+-> SELECT * FROM orders WHERE customer_id = 2008 AND amount > 1000;
+
+  *************************  UPDATE QUERIES:  ****************************
+
+1. Update customer name for customer number 2001:
+
+--> UPDATE customers SET customer_name = 'New Customer Name' WHERE customer_id = 2001;
+
+2. Increase commission by 0.05 for salespeople from London:
+
+--> UPDATE salespeople SET commission = commission + 0.05 WHERE city = 'London';
+
+3. Change the rating to 150 for customers from Rome:
+
+--> UPDATE customers SET rating = 150 WHERE city = 'Rome';
+
+4. Update order amount to 2000 for orders with ONUM 3001:
+
+--> UPDATE orders SET amount = 2000 WHERE order_id = 3001;
+
+ **********************  DELETE QUERIES:  ****************************
+
+1. Delete customer with customer number 2001:
+
+--> DELETE FROM customers WHERE customer_id = 2001;
+
+2. Delete salesperson with salesperson number 1002:
+
+--> DELETE FROM salespeople WHERE salesperson_id = 1002;
+
+3. Delete orders with order number 3001:
+
+--> DELETE FROM orders WHERE order_id = 3001; 
+
+4. Delete customers from London:
+
+--> DELETE FROM customers WHERE city = 'London';
+
+5. Delete orders placed on October 3rd, 1996:
+
+--> DELETE FROM orders WHERE order_date = '1996-10-03';
+
+-----------------------------------------------------------------------------------
+Alter Commands:
+
+create database alter_cmd;
+
+CREATE TABLE employees (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    department VARCHAR(50)
+);
+
+INSERT INTO employees (first_name, last_name, department) VALUES
+('Alice', 'Smith', 'HR'),
+('Bob', 'Johnson', 'IT'),
+('Charlie', 'Brown', 'Finance'),
+('David', 'Davis', 'Marketing'),
+('Eve', 'Miller', 'IT');
+
+alter table employee add column email varchar(50);
+
+alter table employee modify column salary decimal(15, 2) not null;
+
+alter table employee add constraint unique_email unique(email);
+
+alter table employee drop column email
+
+alter table employee drop primary key;
+
+SELECT constraint_name, table_name, constraint_type
+	FROM information_schema.table_constraints WHERE table_schema = 'alter_cmd';
+
+alter table employee rename column first_name to fname;
+desc employee;
+
+-- Delete all rows from the table
+DELETE FROM employees;
+
+-- Truncate the table, removing all rows
+TRUNCATE TABLE employees;
+
+************ Transaction *********************
+
+start transaction;
+select * from employees;
+TRUNCATE TABLE employees;
+rollback;
+select * from employees;
+
+*****************************************************************************************
+
+03-05-2025
+-----------
+CREATE TABLE products (
+product_id INT PRIMARY KEY,
+product_name VARCHAR(50) UNIQUE,
+category VARCHAR(50),
+price DECIMAL(10, 2),
+supplier_id INT,
+CONSTRAINT fk_supplier
+FOREIGN KEY (supplier_id)
+REFERENCES suppliers(supplier_id),
+CONSTRAINT chk_price
+CHECK (price > 0),
+stock_quantity INT DEFAULT 0
+);
+
+***********
+
+CREATE TABLE suppliers (
+    supplier_id INT PRIMARY KEY,
+    supplier_name VARCHAR(50) UNIQUE,
+    contact_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE,
+    phone VARCHAR(20),
+    address VARCHAR(100),
+    city VARCHAR(50),
+    state VARCHAR(50),
+    country VARCHAR(50),
+    CONSTRAINT chk_phone
+        CHECK (LENGTH(phone) >= 10 AND LENGTH(phone) <= 15),
+    CONSTRAINT chk_country
+        CHECK (country IN ('USA', 'UK', 'Canada', 'Australia', 'Germany')),
+    CONSTRAINT chk_state
+        CHECK (
+            (country = 'USA' AND state IN ('California', 'New York', 'Texas')) OR
+            (country = 'Canada' AND state IN ('Ontario', 'Quebec', 'British Columbia')) OR
+            (country NOT IN ('USA', 'Canada'))
+        )
+);
+
+************************************************************************
+
+INSERT INTO suppliers (supplier_id, supplier_name, contact_name, email, phone, address, city, state, country)
+VALUES
+(1, 'ABC Supplies', 'John Smith', 'john@example.com', '+1234567890', '123 Main St', 'Anytown', 'California', 'USA'),
+(2, 'XYZ Distributors', 'Jane Doe', 'jane@example.com', '+1987654321', '456 Elm St', 'Anycity', 'New York', 'USA'),
+(3, 'Global Imports', 'Michael Johnson', 'michael@example.com', '+1122334455', '789 Oak St', 'Anystate', 'Texas', 'USA'),
+(4, 'Quality Products', 'Emily Brown', 'emily@example.com', '+1555666777', '987 Maple Ave', 'Anothercity', 'Ontario', 'Canada'),
+(5, 'Supreme Goods', 'David Lee', 'david@example.com', '+1444555666', '654 Pine St', 'Yetanothercity', 'British Columbia', 'Canada');
+
+**********************************************************************************************
+
+INSERT INTO products (product_id, product_name, category, price, supplier_id, stock_quantity)
+VALUES
+(101, 'Widget A', 'Electronics', 49.99, 1, 100),
+(102, 'Gizmo B', 'Electronics', 29.99, 2, 150),
+(103, 'Thingamajig C', 'Home & Garden', 19.99, 3, 200),
+(104, 'Doodad D', 'Toys & Games', 39.99, 4, 75),
+(105, 'Widget E', 'Electronics', 99.99, 5, 120),
+(106, 'Gadget F', 'Electronics', 79.99, 1, 80),
+(107, 'Doohickey G', 'Home & Garden', 59.99, 2, 90),
+(108, 'Whatchamacallit H', 'Toys & Games', 69.99, 3, 110);
+
+*********************************************************************************
+Query to insert Data Violateing check constraint:
+
+insert into products(product_id, product_name, category, price, supplier_id, stock_quantity)
+values(109, 'Invalid Product', 'Electronics', -10.00, 1, 50);
+
+***********************************************************************************
+
+Query to Insert Data Violating Foriegn Key COnstraint:
+
+insert into products(product_id, product_name, category, price, supplier_id, stock_quantity)
+values(110, 'Non-Existent Product', 'Electronics', 99.99, 10, 50);
+
+*****************************************************************************************
+
+1. Query to Modify Data Violating Unique Constraint:(email is unique)
+
+	update supliers set email = 'jane@example.com' where supplier_id =1;
+
+2. Query to Modify Data Violating Check Constraint:(price should be positive)
+
+	update supliers set price = -20.00 where supplier_id =101; 
+
+3. Query to Modify Data Violating Foriegn Key Constraint:(Cannot delete or update a parent row)
+
+	delete from suppliers where supplier_id =1;
+
+4. Query to insert null into not null column:
+
+	insert into suppliers (supplier_id, supplier_name, contact_name, email, phone, address, city, state, country)
+	values (null, 'null', null, null, '123446566', '231fdbdvnbd', 'any', 'california', 'usa');
+
+5. Query to understand defualt value:
+
+	insert into products(product_id, product_name, category, price, supplier_id)
+	values(1002, 'parle-g', 'food', 49.99, 1);
+
+*************************************************************************************************
+04-05-2025
+
+Grant: granting permission to someone(plummer to access kitchen).
+revoke: after the task complete removing permission.
+
+-- Grant privileges
+GRANT SELECT, INSERT, UPDATE, DELETE ON Employees TO employee_manager;
+_________________________________________________________
+
+Now, the employee_manager user has the necessary privileges to perform these operations on the Employees table.
+
+If you later decide to revoke these privileges from the employee_manager user:
+
+-- Revoke privileges
+REVOKE SELECT, INSERT, UPDATE, DELETE ON Employees FROM employee_manager;
+--------------------------------------------------------------------
+
+After revoking the privileges, the employee_manager user will no longer have permission to perform these operations on the Employees table.
+
+Granting and revoking privileges allows you to control access to database objects, ensuring that only authorized users can perform specific actions on those objects. It's an essential aspect of database security and access control.
+
+
+start transaction: if you want to undo all changes start with this command;
+rollback: it will undo all steps done from start transaction.
+commit: this will finalize those steps which we done after start transaction.
+
+Inner Join:(common values) 
+	select a1.col1, b1.col2 from a1 inner join b1 on a1.col1=b1.col2;
+	select a1.col1, b1.col2 from a1 join b1 on a1.col1=b1.col2;
+Left Join: ( all values from left table only matching value in right)
+	select a1.col1, b1.col2 from a1 left join b1 on a1.col1=b1.col2;
+Right Join:( all values from right table only matching value in left)
+	select a1.col1, b1.col2 from a1 right join b1 on a1.col1=b1.col2;
+Cross Join: (connecting all values of a1 with b1)
+	select a1.col1, b1.col2 from a1 join b1;
+	select x.col1,y.col1 from a1 x join a1 y
+self join: (creating 2 names for same table and joining it)
+	select x.col1,y.col1 from a1 x join a1 y on x.col1=y.col1;
+	select x.col1,y.col1 from a1 x join a1 y on x.col1<>y.col1;(not equal)
+	select x.col1,y.col1 from a1 x join a1 y on x.col1>y.col1;
+full join: Union
+	 select col1 from a1 union select col2 from b1;(common value)
+	 select col1 from a1 union all select col2 from b1;(all values)
+    select a1.col1, b1.col2 from a1 left join b1 on a1.col1=b1.col2
+    -> union
+    -> select a1.col1, b1.col2 from a1 right join b1 on a1.col1=b1.col2;
+Intersect:(common values)
+	select col1 from a1 intersect select col2 from b1;
+Except:
+	select col1 from a1 except select col2 from b1;
+	select col2 from b1 except select col1 from a1;
+
+************************** Joins Example ***************************
+
+Create the departments table
+CREATE TABLE departments (
+department_id INT PRIMARY KEY,
+department_name VARCHAR(50)
+);
+-- Create the employees table
+CREATE TABLE employees (
+employee_id INT PRIMARY KEY,
+employee_name VARCHAR(50),
+department_id INT,
+salary DECIMAL(10, 2),
+FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+-- Insert sample data into departments
+INSERT INTO departments (department_id, department_name) VALUES
+(1, 'HR'),
+(2, 'Finance'),
+(3, 'Engineering'),
+(4, 'Marketing');
+
+-- Insert sample data into employees
+INSERT INTO employees (employee_id, employee_name, department_id, salary) VALUES
+(1, 'Alice', 1, 50000),
+(2, 'Bob', 2, 60000),
+(3, 'Charlie', 3, 70000),
+(4, 'David', 3, 75000),
+(5, 'Eve', NULL, 55000); 
+
+Right Join:
+ select e.employee_name, d.department_name from employees e right join 
+	departments d on e.department_id= d.department_id;
+Union:
+	 select e.employee_name, d.department_name from employees e right join departments d on e.department_id= d.department_id
+    -> union
+    -> select e.employee_name, d.department_name from employees e left join departments d on e.department_id= d.department_id;
+
+Cross Join:
+	select e.employee_name, d.department_name from employees e join departments d;
+
+select e.employee_name, d.department_name, salary from employees e join departments d 
+	on e.department_id = d.department_id where salary > 60000;
+
+select e.employee_name, d.department_name, salary from employees e join departments d 
+	on e.department_id = d.department_id where department_name='engineering';
+		
+ select * from employees e right join departments d
+    -> on e.department_id = d.department_id where employee_id is NULL;
+
+ select department_name from employees e right join departments d
+    -> on e.department_id = d.department_id where employee_id is NULL;
+
+ select e.employee_name, e.salary, d.departmet_name from employees e left join departments d
+    -> on e.department_id = d.department_id where e.employee_name 'A%';(not working)
+________________________________________________________________________________________________________
+
+****************** Group By Example: **********************
+
+CREATE TABLE sales (
+    transaction_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    salesperson_name VARCHAR(50),
+    amount DECIMAL(10, 2)
+);
+
+INSERT INTO sales(transaction_id, product_name, salesperson_name, amount) VALUES
+(1, 'Laptop', 'Alice', 1200.00),
+(2, 'Smartphone', 'Bob', 800.00),
+(3, 'Tablet', 'Alice', 500.00),
+(4, 'Laptop', 'Charlie', 1300.00),
+(5, 'Smartphone', 'Alice', 900.00),
+(6, 'Laptop', 'Bob', 1400.00),
+(7, 'Tablet', 'Charlie', 600.00),
+(8, 'Smartphone', 'Alice', 850.00),
+(9, 'Laptop', 'Alice', 1500.00),
+(10, 'Tablet', 'Bob', 700.00);
+
+
+--> Total Sales Amount by Salesperson
+
+  SELECT salesperson_name, SUM(amount) AS total_sales
+	FROM sales GROUP BY salesperson_name;
+
+--> Average Sales Amount by Product
+
+  SELECT product_name, AVG(amount) AS average_sales
+	FROM sales GROUP BY product_name;
+
+--> Number of Sales Transactions by Salesperson
+
+  SELECT salesperson_name, COUNT(*) AS num_transactions
+	FROM sales GROUP BY salesperson_name;
+
+--> Maximum Sales Amount by Product
+
+  SELECT product_name, MAX(amount) AS max_sales
+	FROM sales GROUP BY product_name;
+
+--> Total Sales Amount by Salesperson and Product
+
+  SELECT salesperson_name, product_name, SUM(amount) AS total_sales FROM sales
+	GROUP BY salesperson_name, product_name;
+
+************************* Having Example ******************************
+
+--> Salespersons with Total Sales Over 2000
+
+  SELECT salesperson_name, SUM(amount) AS total_sales FROM sales
+	GROUP BY salesperson_name HAVING SUM(amount) > 2000;
+
+
+--> Products with Average Sales Amount Over 800
+
+  SELECT product_name, AVG(amount) AS average_sales FROM sales
+	GROUP BY product_name HAVING AVG(amount) > 800;
+
+--> Salespersons with More Than 2 Transactions
+
+  SELECT salesperson_name, COUNT(*) AS num_transactions FROM sales
+	GROUP BY salesperson_name HAVING COUNT(*) > 2;
+
+--> Products with Maximum Sales Amount Over 1000
+
+  SELECT product_name, MAX(amount) AS max_sales FROM sales
+	GROUP BY product_name HAVING MAX(amount) > 1000;
+
+--> Salespersons with Total Sales Over 1000 for Laptops
+
+  SELECT salesperson_name, product_name, SUM(amount) AS total_sales FROM sales
+	GROUP BY salesperson_name, product_name
+	HAVING product_name = 'Laptop' AND SUM(amount) > 1000;
+
+
+********************* ORDER BY examples ***********************
+
+SELECT * FROM sales ORDER BY amount ASC;
+
+SELECT * FROM sales ORDER BY amount DESC;
+
+SELECT * FROM sales ORDER BY salesperson_name ASC, amount DESC;
+
+SELECT salesperson_name, SUM(amount) AS total_sales FROM sales
+	GROUP BY salesperson_name ORDER BY salesperson_name ;
+
+SELECT product_name, AVG(amount) AS average_sales FROM sales
+	GROUP BY product_name ORDER BY average_sales DESC;
+
+******************* Distinct ************************
+
+Distinct: used to select unique value from column where union will do the same for row.
+
+-- Create table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    city VARCHAR(50),
+    age INT
+);
+ 
+-- Insert sample data into the customers table
+INSERT INTO customers (customer_id, first_name, last_name, city, age) VALUES
+(1, 'Alice', 'Smith', 'New York', 30),
+(2, 'Bob', 'Johnson', 'Los Angeles', 25),
+(3, 'Charlie', 'Brown', 'Chicago', 35),
+(4, 'David', 'Davis', 'New York', 28),
+(5, 'Eve', 'Miller', 'Houston', 22),
+(6, 'Frank', 'Wilson', 'Chicago', 30),
+(7, 'Grace', 'Taylor', 'Phoenix', 25),
+(8, 'Henry', 'Anderson', 'Los Angeles', 35),
+(9, 'Ivy', 'Clark', 'Houston', 28),
+(10, 'Jack', 'Moore', 'Phoenix', 22);
+
+1. select distinct city from customers; (unique data from city)
+2. use datafile;
+3. show tables;
+4. select distinct job_id from employees;
+5. use distin;
+6. select distinct city from customers;
+7. select count(distinct city) as unique_cities from customers;
+8. select distinct age from customers;
+9. select distinct first_name, last_name from customers;
+10. select distinct last_name from customers where age>22;
+11. select count(distinct city) as unique_cities_under_30 from customers where age<30;
+12. select distinct age from customers where city in ('los angeles', 'phoenix');
+13.  select distinct first_name, city from customers;
+14. select distinct last_name from customers where city='chicago';
+15. select count(distinct age, city) as unique_age_city_combinations  from customers;
+16. select distinct first_name from customers where city = 'new york';
+17.  select distinct age, city from customers;
+
+****************** Limit & Offset ***********************
+
+Create students table:
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT
+);
+
+INSERT INTO students (student_id, first_name, last_name, age) VALUES
+(1, 'Alice', 'Smith', 20),
+(2, 'Bob', 'Johnson', 22),
+(3, 'Charlie', 'Brown', 21),
+(4, 'David', 'Davis', 23),
+(5, 'Eve', 'Miller', 20),
+(6, 'Frank', 'Wilson', 22),
+(7, 'Grace', 'Taylor', 21),
+(8, 'Henry', 'Anderson', 23),
+(9, 'Ivy', 'Clark', 20),
+(10, 'Jack', 'Moore', 22);
+
+4. select * from students where age<22;
+5. select * from students where age<22 limit 2;
+6. select * from students where age,22 order by age desc;
+7. select * from students where age,22 order by age desc limit 2;
+8. select * from students limit 3 offset 2;
+
+After importing csv file to datafiles:
+
+1. select * from employees limit 10;
+2. select * from employees limit 6 offset 4;
+3. select * from employees limit 6 offset 24;
+
+---------------------------------------------------------------------------------------------------------
+
+10-05 : SQL Functions
+---------------------
+
+Topic: Aggregation 
+
+1. Select sun(sname) from salespeople;
+2. select max(snum) from salespeople;
+3. selet min(snum) from salespeople;
+4. select min(sname) from salespeople;
+5. select sum(amt) from salespeople;
+6. select count(amt) from orders;
+
+-- Create the sales table
+CREATE TABLE sales (
+    transaction_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    salesperson_name VARCHAR(50),
+    amount DECIMAL(10, 2)
+);
+ 
+-- Insert sample data into the sales table
+INSERT INTO sales (transaction_id, product_name, salesperson_name, amount) VALUES
+(1, 'Laptop', 'Alice', 1200.00),
+(2, 'Smartphone', 'Bob', 800.00),
+(3, 'Tablet', 'Alice', 500.00),
+(4, 'Laptop', 'Charlie', 1300.00),
+(5, 'Smartphone', 'Alice', 900.00),
+(6, 'Laptop', 'Bob', 1400.00),
+(7, 'Tablet', 'Charlie', 600.00),
+(8, 'Smartphone', 'Alice', 850.00);
+
+1. select sum(amount) from sales;
+2. select sum(amount) from sales where salesperson_name = 'Alice';
+3. select salesperson_name, sum(amount) from sales group by salesperson_name;
+4. select salesperson_name from sales group by salesperson_name;
+5. select salesperson_name, sum(amount) from sales group by salesperson_name
+    having sum(amount)>2000;
+6. select product_name, avg(amount) as average_sales
+    -> from sales group by product_name;
+7. select salesperson_name, count(*) as num_transactions from sales
+    -> group by salesperson_name having num_transactions>2;
+
+8. insert into sales values (9,'laptop','Alice',10000.00);
+ 
+	insert into sales values (10,'laptop','Alice',1000.00);
+	 
+	insert into sales values (11,'laptop','BoB',10000.00);
+ 
+	insert into sales values (12,'laptop','Charlie',1000.00);
+
+9. select salesperson_name, product_name, sum(amount) from sales
+    -> group by salesperson_name, product_name;
+
+Alies: if name having 2 words we should give it inside "..": 
+10. select salesperson_name, count(*) as "num transactions" 
+    -> from sales
+    -> group by salesperson_name having "num transactions" >2;
+
+************************************************************************************************
+11-05-2025
+----------
+
+************* SubQuery:(query inside query to filter data) ****************
+
+1. use subqueries;
+2. select * from orders where amt >(select avg(amt) from orders);
+3. select * from customers;
+4. select sname from salespeople 
+	where city=( select city from cutomers where cname = 'haffmon');
+
+-- Create the departments table
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50) NOT NULL
+);
+ 
+-- Create the employees table
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    salary DECIMAL(10, 2),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+ 
+-- Insert sample data into departments
+INSERT INTO departments (department_id, department_name) VALUES
+(1, 'Human Resources'),
+(2, 'Finance'),
+(3, 'Engineering'),
+(4, 'Marketing');
+ 
+-- Insert sample data into employees
+INSERT INTO employees (employee_id, first_name, last_name, salary, department_id) VALUES
+(1, 'John', 'Doe', 50000, 1),
+(2, 'Jane', 'Smith', 60000, 2),
+(3, 'Jim', 'Brown', 70000, 3),
+(4, 'Jake', 'White', 80000, 4),
+(5, 'Julia', 'Black', 55000, 1),
+(6, 'Jill', 'Green', 62000, 2),
+(7, 'James', 'Grey', 75000, 3),
+(8, 'Judy', 'Blue', 81000, 4),
+(9, 'Jack', 'Red', 53000, 1),
+(10, 'Janet', 'Orange', 63000, 2);
+
+1. select department_id from departments where department_name = "engineering";
+---> 2. Select Employee Names in a specific department:
+
+select first_name , last_name from employees where department_id=
+  -> (select department_id from departments where department_name = "engineering");
+
+---> 3.  Find Employee names with a salary greater than averge salary:
+
+select first_name , last_name from employees where salary>
+  -> (select avg(salary) from employees);
+
+--->  4. Get the department name of an employee
+
+select department_name from departments where department_id =
+    -> (select department_id from employees where first_name = 'Jim');
+
+---> 5. Find employees in department with more than 2 employees:
+
+select department_id, count(department_id) from employees
+    -> group by department_id;
+
+select department_id from employees group by department_id
+    -> having count(department_id)>2;
+
+Using IN Clause:
+select * from employees where department_id in
+    -> (select department_id from employees group by department_id having count(department_id)>2);
+
+Using ANY Clause:
+select * from employees where department_id = any
+    -> (select department_id from employees group by department_id having count(department_id)>2);
+
+---> 6. Select Employee with Highest Salary:
+
+select first_name, last_name from employees where salary =
+    -> (select max(salary) from employees);
+
+---> 7. Get Department with average salary over 60000:
+
+ select department_name from departments where department_id = any
+    -> (select department_id from employees group by department_id
+    -> having avg(salary)>60000);
+
+ select department_id, avg(salary) from employees 
+	group by department_id having avg(salary)>60000;
+
+---> 8. FInd Employees with salaries higher than those in finance department:
+
+select first_name, last_name, salary from employees where salary >
+    -> (select max(salary) from employees where department_id =
+    -> (select department_id from departments where department_name='finance'));
+
+---> 9. select employees who are not in the highest paid department
+
+To find maximun salaried department:(finding total salary then find highest salary)
+
+select department_id from employees group by department_id
+    -> order by sum(salary) desc limit 1
+
+select department_id, first_name, last_name from employees where department_id !=
+    -> (select department_id from employees group by department_id
+    -> order by sum(salary) desc limit 1);
+
+
+**************** String Functions in SQL: *********************
+	
+1. select ASCII('R');
+2. select char_length('hello');
+3. select character_length('syed') as char_ength;
+4. select concat('Roshni',' ','Syed') as concatenated_string;
+5. select format(12345.678, 2) As formatted_number;
+6. select insert('hello World', 7, 4, 'Everyone') as inserted_string;
+7. select lcase('HELLO WORLD') as lower_case;
+8. select left('Hello World', 5) as left_String;
+9. select length('hello') as length_b;
+10. select locate('World', 'Hello World') as position;
+11. select lower('HELLO WORLD') as lower_case;
+12.  select lpad('hello', 10, ' ') as lpad;
+13. select ltrim('  Hello') as triming;
+14. select mid('hello world', 7, 5) as mid; 
+15. select position('world' in 'hell world') as position;
+16. select REPEAT('hello', 3) as repeated;
+17. select replace('hello world', 'world', 'Everyone') as replaced_string;
+18. select reverse('hello') as reversed;
+19. select right('Hello World', 5) as rightside;
+20. select rtrim('hello  ') as righttrim;
+21. select space(5) as spacestr;
+22. select substr('hello world', 7, 5) as sub_string;
+23.  select substring('hello world', 7, 5) as sub_string;
+24. trim('  hello  ')
+25. ucase('hello')
+26. upper('hello')
+
+************ Number function(Math): *************
+
+28. select abs(-5) as abs_value;
+29. select ceil(4.2) as ceil_value;
+30. ceiling(4.2) => 5
+31. floor(4.3) => 4
+32. round(4.3) => 4
+33. round(4.8) => 5
+34. select 9 div 4 as div_result;
+35. select Mod(10, 3) as modulus; 
+36. select pi() as pi_value;
+37. pow(2, 3) 
+38. power(3, 4)
+39. round(4.567, 2) => 4.56
+40. sign(-5) => -1
+41. sign(0) => 0
+42. sqrt(6)
+
+************ Date Time function: ************
+
+43. curdate()
+44. current_date()
+45. current_time()
+46. current_timestamp()
+47. curtime()
+48. date('2024-05-30 14:35:35')
+49. datediff('2024-05-30', '2024-05-25')
+50. date_formate('2024-05-30', '%w, %m, %d,%y')
+51. dayname('2024-05-30') => thursday  
+52. dayofweek('2024-05-30') => 5(thursday=5)
+53. dayofyear('2024-05-30') => 151 
+54. extract(year from '2024-05-30')
+55. from_Days(738100) => '2020-11-06'
+56. hour('2024-05-30 14:35:20') => 14
+57. last_day('2024-05-30') => '2024-05-31'
+58. localtime()
+59. localtimestamp()
+60. maketime(14, 35, 20) => 14:35:20
+61. microsecond('2024-05-30 14:35:20.123456') => 123456
+62. monthname('2024-05-30')
+63. now()
+64. period_add(202405, 1) => 202406
+65. period_diff(202405, 202304) => 13(months)
+66. quarter('2024-05-30') => 2
+67. sec_to_time(3665) => 01:01:05
+68. str_to_date('30-may-2024', '%d-%b-%y')
+69. subtime('14:35:20', '01:30:00')
+70. time_formate('14:35:20', '%h:%i:%p')
+71. select to_days('2024-05-30') as weeks;
+72. select week('2024-05-30') as weeks;
+72. select weekday('2024-05-30') as weeks;
+73. select weekofyear('2024-05-30') as weeks;
+74. select yearweek('2024-05-30') as weeks;
+
+
+*************************** Case Statement -> similar to switch cases **************************17-05-2025
+
+use cases;
+
+CREATE TABLE emp (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    department VARCHAR(100),
+    salary DECIMAL(10, 2)
+);
+ 
+ 
+INSERT INTO emp (name, age, department, salary) VALUES
+('Alice', 30, 'HR', 50000.00),
+('Bob', 25, 'Engineering', 70000.00),
+('Charlie', 28, 'Marketing', 60000.00),
+('David', 35, 'Engineering', 80000.00),
+('Eve', 40, 'HR', 55000.00);
+
+
+---->categorizing salaryies and storing it in salary_category column.
+
+   select name, salary,
+    -> case when salary<60000 then 'low Salary'
+    -> when salary between 60000 and 70000 then 'medium salary'
+    -> else 'high salary'
+    -> end as salary_category
+    -> from emp;
+
+----> To select only medium salary category name, salary using subquery
+
+select name, salary, salary_category from (
+    -> select name, salary,
+    -> case when salary<60000 then 'low Salary'
+    -> when salary between 60000 and 70000 then 'medium salary'
+    -> else 'high salary'
+    -> end as salary_category
+    -> from emp)
+    -> as table1 where salary_category = 'medium salary';
+
+---> select employee categorized by age-group:
+
+ select name, age,
+    -> case when age<30 then 'young'
+    -> when age between 30 and 40 then 'middle aged'
+    -> else 'senior' end as age_group from emp;
+
+
+************** Ranking Functions: ***************
+
+1. create database ranking;
+
+2. CREATE TABLE sales (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sales_rep VARCHAR(50),
+    region VARCHAR(50),
+    sales_amount DECIMAL(10, 2),
+    sales_date DATE
+);
+ 
+3. INSERT INTO sales (sales_rep, region, sales_amount, sales_date)
+VALUES
+    ('Alice', 'North', 500.00, '2024-05-01'),
+    ('Bob', 'South', 600.00, '2024-05-01'),
+    ('Alice', 'North', 700.00, '2024-05-02'),
+    ('Bob', 'South', 800.00, '2024-05-02'),
+    ('Charlie', 'East', 900.00, '2024-05-01'),
+    ('Charlie', 'East', 1000.00, '2024-05-02'); 
+4.
+insert into sales values(7,'Satwika','West',500,'2024-05-03');
+insert into sales values(8,'Raghu','West',600,'2024-05-03');
+insert into sales values(9,'Naveen','East',900,'2024-05-04');
+
+---> give me employee from each department.(row_number())
+
+1. select id, sales_rep, region, sales_amount,
+    -> row_number() over(order by sales_amount desc) as row_num from sales;
+
+2. select id, sales_rep, region, sales_amount,
+    -> rank() over(order by sales_amount desc) as rank_num from sales;
+
+3. select id, sales_rep, region, sales_amount,
+    -> dense_rank() over(order by sales_amount desc) as rankdense_num from sales;
+
+4. select sales_rep, sales_amount,
+    -> rank() over ( order by sales_amount desc) as rank_1,
+    -> dense_rank() over (order by sales_amount desc) as d_r,
+    -> row_number() over (order by sales_amount desc) as row_num
+    -> from sales;
+
+************************************* Exist, Use Cases **************************************************18-05-2025 
+
+1. create database existing;
+
+2. -- Create the customers table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50)
+);
+ 
+3-- Create the orders table
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    order_date DATE,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+ 
+4-- Insert sample data into customers
+INSERT INTO customers (customer_id, customer_name) VALUES
+(1, 'Alice'),
+(2, 'Bob'),
+(3, 'Charlie'),
+(4, 'David'),
+(5, 'Eve');
+ 
+5-- Insert sample data into orders
+INSERT INTO orders (order_id, order_date, customer_id) VALUES
+(1, '2023-01-01', 1),
+(2, '2023-01-02', 1),
+(3, '2023-01-03', 2),
+(4, '2023-01-04', 3),
+(5, '2023-01-05', 5);
+
+6--- Find  customer who have placed atleast one order
+
+select customer_name from customers where exists(
+    -> select 1 from orders where customers.customer_id = orders.customer_id);
+
+7 ---- Find customers who have not placed any orders
+
+select customer_name from customers where not exists(
+    -> select 1 from orders where customers.customer_id = orders.customer_id);
+
+8 --- find orders by alice
+
+select order_id, order_date from orders where exists(
+    -> select 1 from customers where customers.customer_id=orders.customer_id and customers.customer_name ='alice');
+
+9 --- find customers who placed in 2023
+
+ select customer_name from customers where exists (
+    -> select 1 from orders where customers.customer_id= orders.customer_id
+    -> and year(order_date) = 2023);
+
+************************************* Normalization ******************************************
+
+separating data in Other table due to repeat of that data is called normalization.(e.g. employee table & department)
+
+1NF: no repeat of data.
+	only common value in a table
+
+2NF: 1NF + Should be Functional dependency
+	
+3NF: 2NF + No transitive
+   transitive dependency: 
+	rose depands on Roshni, Roshni depands on sir.
+	if Roshni changed department rose and sir connection will gone
+
+4NF: more than one mulplied attribute should not there. 
+	move name and genre same city are different so create 2 tables for movie+genre , movie+city.
+
+5NF: no more decomposition(broke)
+	tables are broken in all possibility so no more brokens.
+
+DKNF: no insertion or deletion.
+	
+************************** MySQL Programming  ********************************
+
+Functions: same like programming function.
+
+Syntax:
+DELIMITER // ( start like { ) 
+	function statements...
+//(end like } )
+	
+DELIMITER //
+
+CREATE FUNCTION CheckEvenOrOdd (num INT)
+RETURNS VARCHAR(40)
+DETERMINISTIC
+BEGIN
+    RETURN IF(num%2 = 0, 'Even Number', 'Odd Number');
+END;
+//
+
+DELIMITER ;
+
+
+Show Function status where DB="Database_name";
+
+
+SELECT CheckEvenOrOdd(10) AS result; -- Output: 'Even Number'
+
+SELECT CheckEvenOrOdd(11) AS result; -- Output: 'Odd Number'
+
+SELECT CheckEvenOrOdd(0) AS result;  -- Output: Even
+
+SELECT CheckEvenOrOdd(-5) AS result; -- Output: Odd
+
+DROP FUNCTION CheckEvenOrOdd;
+
+DELIMITER //
+
+CREATE FUNCTION CalculateCompoundInterest (principal DECIMAL(10, 2), rate DECIMAL(5, 2), time INT, n INT)
+RETURNS DECIMAL(10, 2)
+DETERMINISTIC
+BEGIN
+    DECLARE amount DECIMAL(10, 2);
+    SET amount = principal * POW((1 + rate / n), n * time);
+    RETURN amount;
+END;
+//
+DELIMITER ;
+
+
+SELECT CalculateCompoundInterest(1000, 0.05, 10, 4) AS amount;  -- Output: 1647.01 (approx)
+SELECT CalculateCompoundInterest(5000, 0.03, 5, 12) AS amount;  -- Output: 5837.34 (approx)
+
+SHOW FUNCTION STATUS where db='existing';
+
+-- ************ Reads SQL Data *********************
+
+DELIMITER //
+CREATE FUNCTION GetCustomerCount()
+RETURNS INT
+READS SQL DATA
+BEGIN
+    DECLARE customerCount INT;
+    SELECT COUNT(*) INTO customerCount FROM customers;
+    RETURN customerCount;
+END;
+//
+DELIMITER ;
+
+Select GetCustomerCount() as Count;
+
+-- *********************** No SQL *************************
+
+DELIMITER //
+CREATE FUNCTION CalculateSquare(num INT)
+RETURNS INT
+NO SQL
+BEGIN
+    RETURN num * num;
+END;
+//
+DELIMITER ;
+
+select CalculateSquare(4) as square;
+
+******************* Stored Procedure: ******************************
+
+-- 1. Printing name with greeting
+DELIMITER $$
+CREATE PROCEDURE sp_greeting(name VARCHAR(100))
+BEGIN
+    SELECT CONCAT('hello ', name) AS greeting;
+END;
+$$
+DELIMITER ;
+
+CALL sp_greeting('John Doe'); -- procedure call
+
+-- 2. fetching all order details
+DELIMITER $$
+CREATE PROCEDURE GetOrderDetails()
+BEGIN
+    SELECT * FROM orders;
+END$$
+DELIMITER ;
+
+CALL GetOrderDetails(); 
+
+-- 3. Stored Procedure with Input Parameter
+use practice;
+DELIMITER $$
+CREATE PROCEDURE GetEmployeesByDepartment(IN dept_id INT) 
+BEGIN
+    SELECT * FROM employees WHERE department_id = dept_id;
+END$$
+DELIMITER ;
+
+CALL GetEmployeesByDepartment(3);
+
+-- 4. Stored Procedure to Update an Employee's Salary
+use alter_cmd;
+DELIMITER $$
+CREATE PROCEDURE UpdateEmployeeSalary(
+    IN emp_id INT,
+    IN new_salary DECIMAL(10, 2)
+)
+BEGIN
+    UPDATE staff
+    SET salary = new_salary
+    WHERE employee_id = emp_id;
+END$$
+DELIMITER ;
+
+CALL UpdateEmployeeSalary(101, 70000);
+
+-- 5.Stored Procedure to Delete an Employee
+DELIMITER $$
+CREATE PROCEDURE DeleteEmployee(IN emp_id INT)
+BEGIN
+    DELETE FROM staff WHERE employee_id = emp_id;
+END$$
+DELIMITER ;
+
+CALL DeleteEmployee(105);
+
+-- 6.Stored Procedure to Find the Total Salary by Department
+use joins;
+DELIMITER $$
+CREATE PROCEDURE TotalSalaryByDepartment()
+BEGIN
+    SELECT d.dept_name, SUM(e.salary) AS total_salary
+    FROM employees e
+    JOIN departments d ON e.dept_id = d.dept_id
+    GROUP BY d.dept_name;
+END$$
+DELIMITER ;
+
+CALL TotalSalaryByDepartment();
+
+
+***************************** Triggers: *******************************
+
+like a sprinkcling water in an fire emergency automatically caling or working.
+
+-- Create departments table
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+-- Insert sample data into departments table
+INSERT INTO departments (department_id, department_name) VALUES
+(1, 'HR'),
+(2, 'Engineering'),
+(3, 'Marketing');
+
+-- Create employees table
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    department_id INT,
+    salary DECIMAL(10, 2),
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+
+-- Insert sample data into employees table
+INSERT INTO employees (employee_id, employee_name, department_id, salary) VALUES
+(1, 'Alice', 1, 50000),
+(2, 'Bob', 2, 60000),
+(3, 'Charlie', 2, 70000),
+(4, 'David', 3, 40000),
+(5, 'Eve', 1, 45000);
+
+-- Create audit_log table to store logs
+CREATE TABLE audit_log (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    log_message VARCHAR(255),
+    log_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+_________________________________________________________________________________
+
+Trigger Before Insert
+
+DELIMITER $$
+
+CREATE TRIGGER BeforeInsertEmployee
+BEFORE INSERT ON employees
+FOR EACH ROW
+BEGIN
+    IF NEW.salary < 30000 THEN
+        SET NEW.salary = 30000;
+    END IF;
+END$$
+
+DELIMITER ;
+_____________________________________________________________________________
+
+Trigger After Insert
+
+DELIMITER $$
+
+CREATE TRIGGER AfterInsertEmployee
+AFTER INSERT ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (log_message) 
+    VALUES (CONCAT('New employee added: ', NEW.employee_name));
+END$$
+
+DELIMITER ;
+____________________________________________________________________________________
+
+Trigger Before Update
+
+DELIMITER $$
+
+CREATE TRIGGER BeforeUpdateEmployee
+BEFORE UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    IF NEW.salary < OLD.salary THEN
+        SET NEW.salary = OLD.salary;
+    END IF;
+END$$
+
+DELIMITER ;
+
+_____________________________________________________________________________________
+
+
+Trigger After Update
+
+DELIMITER $$
+
+CREATE TRIGGER AfterUpdateEmployee
+AFTER UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (log_message)
+    VALUES (CONCAT('Employee ', NEW.employee_name, ' salary updated from ', OLD.salary, ' to ', NEW.salary));
+END$$
+
+DELIMITER ;
+
+________________________________________________________________________________________
+
+Testing the Triggers
+
+
+Trigger Before Delete
+
+DELIMITER $$
+
+CREATE TRIGGER BeforeDeleteEmployee
+BEFORE DELETE ON employees
+FOR EACH ROW
+BEGIN
+    IF OLD.department_id = (SELECT department_id FROM departments WHERE department_name = 'Engineering') THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Cannot delete employees from Engineering department';
+    END IF;
+END$$
+
+DELIMITER ;
+
+____________________________________________________________________________________________
+
+
+Insert a New Employee
+
+INSERT INTO employees (employee_id, employee_name, department_id, salary)
+VALUES (6, 'Frank', 2, 25000);  -- This will trigger BeforeInsertEmployee
+
+Update an Employee's Salary
+
+UPDATE employees
+SET salary = 29000
+WHERE employee_id = 1;  -- This will trigger BeforeUpdateEmployee and AfterUpdateEmployee
+
+Delete an Employee
+
+DELETE FROM employees
+WHERE employee_id = 3;  -- This will trigger BeforeDeleteEmployee
+
+Check the Audit Log
+SELECT * FROM audit_log;
+
+-- **************************** Views **********************************
+
+-- Create departments table
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+-- Insert sample data into departments table
+INSERT INTO departments (department_id, department_name) VALUES
+(1, 'HR'),
+(2, 'Engineering'),
+(3, 'Marketing');
+
+-- Create employees table
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    department_id INT,
+    salary DECIMAL(10, 2),
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+
+-- Insert sample data into employees table
+INSERT INTO employees (employee_id, employee_name, department_id, salary) VALUES
+(1, 'Alice', 1, 50000),
+(2, 'Bob', 2, 60000),
+(3, 'Charlie', 2, 70000),
+(4, 'David', 3, 40000),
+(5, 'Eve', 1, 45000);
+
+-- Create audit_log table to store logs
+CREATE TABLE audit_log (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    log_message VARCHAR(255),
+    log_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert sample data into audit_log table
+INSERT INTO audit_log (log_message) VALUES
+('New employee added: Alice'),
+('New employee added: Bob'),
+('New employee added: Charlie'),
+('New employee added: David'),
+('New employee added: Eve');
+
+-- Creating views
+
+-- View: EmployeeDepartments
+CREATE VIEW EmployeeDepartments AS
+SELECT e.employee_name, d.department_name
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id;
+
+-- View: DepartmentSalaries
+CREATE VIEW DepartmentSalaries AS
+SELECT d.department_name, SUM(e.salary) AS total_salary
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+GROUP BY d.department_name;
+
+-- View: EngineeringEmployees
+CREATE VIEW EngineeringEmployees AS
+SELECT employee_name, salary
+FROM employees
+WHERE department_id = (SELECT department_id FROM departments WHERE department_name = 'Engineering');
+
+-- View: HighEarningEmployees
+CREATE VIEW HighEarningEmployees AS
+SELECT e.employee_name, e.salary, d.department_name
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+WHERE e.salary > 50000;
+
+-- View: AuditLogs
+CREATE VIEW AuditLogs AS
+SELECT log_message, log_timestamp
+FROM audit_log
+ORDER BY log_timestamp DESC;
+
+-- Querying the views
+
+-- View Employee Departments
+SELECT * FROM EmployeeDepartments;
+
+-- View Department Salaries
+SELECT * FROM DepartmentSalaries;
+
+-- View Engineering Employees
+SELECT * FROM EngineeringEmployees;
+
+-- View High Earning Employees
+SELECT * FROM HighEarningEmployees;
+
+-- View Audit Logs
+SELECT * FROM AuditLogs;
+
+
+

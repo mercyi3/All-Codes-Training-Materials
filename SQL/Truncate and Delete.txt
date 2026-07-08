@@ -1,0 +1,126 @@
+Differences between TRUNCATE and DELETE
+__________________________________________________________________________________________________________________________________________________
+Operation Type:
+
+DELETE: This command deletes rows one at a time and logs each deletion. You can delete all rows or specific rows based on a condition.
+
+TRUNCATE: This command deletes all rows in a table by deallocating the data pages used by the table. It is faster because it does not log individual row deletions.
+
+WHERE Clause:
+
+DELETE: You can use a WHERE clause to specify which rows to delete.
+TRUNCATE: You cannot use a WHERE clause. TRUNCATE removes all rows in the table.
+
+Triggers:
+
+DELETE: Activates triggers defined on the table for each row deleted.
+TRUNCATE: Does not activate triggers because it does not delete rows individually.
+
+Auto Increment Counter:
+
+DELETE: Does not reset the auto increment counter.
+TRUNCATE: Resets the auto increment counter to the starting value.
+
+
+Transaction Log:
+
+DELETE: Logs individual row deletions, which can be rolled back if wrapped in a transaction.
+TRUNCATE: Logs the deallocation of data pages, which cannot be rolled backed.
+
+mysql> start transaction;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from table1;
++------+-------+------+
+| id   | name  | age  |
++------+-------+------+
+|    1 | John  |   30 |
+|    2 | Alice |   25 |
+|    3 | Bob   |   35 |
++------+-------+------+
+3 rows in set (0.03 sec)
+
+mysql> truncate table table1;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from table1;
+Empty set (0.00 sec)
+__________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________
+
+CREATE TABLE employees (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    department VARCHAR(50)
+);
+
+INSERT INTO employees (first_name, last_name, department) VALUES
+('Alice', 'Smith', 'HR'),
+('Bob', 'Johnson', 'IT'),
+('Charlie', 'Brown', 'Finance'),
+('David', 'Davis', 'Marketing'),
+('Eve', 'Miller', 'IT');
+
+-- Delete rows where department is 'IT'
+DELETE FROM employees WHERE department = 'IT';
+
+
+-- Delete all rows from the table
+DELETE FROM employees;
+
+
+-- Truncate the table, removing all rows
+TRUNCATE TABLE employees;
+__________________________________________________________________________________________________________________________________________________
+
+Summary
+DELETE can be used to delete specific rows or all rows from a table. It logs each deletion and activates triggers.
+TRUNCATE is used to quickly remove all rows from a table, resetting the auto increment counter, but it does not activate triggers or log individual deletions.
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+In the context of databases, logging refers to the process of recording detailed information about changes made to the data within the database. This information is stored in a log file, often called a transaction log, and it serves several important purposes:
+
+Purposes of Logging
+Data Recovery:
+
+Logs enable the recovery of data in the event of a system crash, power failure, or other catastrophic event. By replaying the log, a database can be restored to a consistent state.
+
+Transaction Management:
+
+Logs track the beginning, changes, and completion of transactions. This helps maintain the ACID (Atomicity, Consistency, Isolation, Durability) properties of transactions.
+
+Audit Trail:
+
+Logs provide a historical record of changes, which can be useful for auditing purposes to determine who made what changes and when.
+
+Replication:
+
+Logs can be used to replicate changes from a primary database to one or more secondary databases.
+
+Logging in DELETE and TRUNCATE
+DELETE
+Logging Detailed Operations:
+When you use the DELETE statement, each row that is deleted is individually logged. This means the log contains a record of each row that was removed, including its previous state.
+
+TRUNCATE
+Logging Summary Operations:
+When you use the TRUNCATE statement, the operation is logged at a higher level. Instead of logging each row deletion, the log records the fact that the entire table's data pages were deallocated.
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Key Differences in Logging
+
+DELETE logs changes at the row level, which can result in larger log files if many rows are deleted.
+TRUNCATE logs changes at the page or table level, which is more efficient for large-scale deletions.
+
+Impact on Performance:
+
+Because DELETE logs each row, it can be slower and more resource-intensive, especially for large tables.
+TRUNCATE is faster and uses fewer resources since it logs less detailed information.
+
+Logging is essential for maintaining the integrity, recoverability, and auditability of a database. The choice between DELETE and TRUNCATE can affect how much information is logged and the overall performance of the operation. Understanding the implications of logging helps in choosing the right command for your specific use case.
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________

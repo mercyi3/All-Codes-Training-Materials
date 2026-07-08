@@ -1,0 +1,71 @@
+-- Creating the first table without constraints
+CREATE TABLE Table1 (
+    id INT,
+    name VARCHAR(50),
+    age INT
+);
+
+-- Inserting some values into Table1
+INSERT INTO Table1 (id, name, age) VALUES
+(1, 'John', 30),
+(2, 'Alice', 25),
+(3, 'Bob', 35);
+
+-- Creating the second table without constraints
+CREATE TABLE Table2 (
+    product_id INT,
+    product_name VARCHAR(50),
+    price DECIMAL(10, 2)
+);
+
+-- Inserting some values into Table2
+INSERT INTO Table2 (product_id, product_name, price) VALUES
+(101, 'Laptop', 1200.00),
+(102, 'Smartphone', 800.00),
+(103, 'Tablet', 500.00);
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+1.Add a primary key constraint on the id column.
+
+->
+
+2.Add a check constraint to ensure age is a positive integer.
+
+->
+
+3.Add a primary key constraint on the product_id column.
+->
+
+4.Add a check constraint to ensure price is non-negative.
+->
+
+5.Add a unique constraint on the name column.
+->
+
+6.Adding a unique constraint on the combination of product_id and product_name.
+->
+
+7.Rename a Column of  table1 ,Rename a Column of table2 
+->
+
+8.Rename a Table1,Rename a table2
+->
+
+9.Drop a Column  table1 ,Drop a Column  table2
+->
+
+10.Add a Column table1 , Add a Column  table2
+->
+
+11.Modify a Column (Change Data Type) table1 ,Modify a Column (Change Data Type) table2.
+->
+
+12.Drop a Constraint table1 ,Drop a Constraint table2.
+->
+
+13.create any 2 tables of your choice  with constraints.
+means while creating the table simply give the constraints
+
+

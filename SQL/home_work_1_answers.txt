@@ -1,0 +1,73 @@
+ 
+************************  SELECT QUERIES:  ***************************
+
+Select salespeople from London or Barcelona with a commission greater than 0.1:
+
+-> SELECT * FROM salespeople
+   WHERE city IN ('London', 'Barcelona') AND commission > 0.1;
+
+Select orders with an amount between 1000 and 2000 placed by customer number 2003:
+
+-> SELECT * FROM orders WHERE customer_id = 2003 AND amount BETWEEN 1000 AND 2000;
+
+Select customers whose name starts with 'C' and are from cities other than London:
+
+-> SELECT * FROM customers WHERE customer_name LIKE 'C%' AND city <> 'London';
+
+Select orders with an amount less than or equal to 500 placed on October 3rd, 1996:
+
+-> SELECT * FROM orders WHERE order_date = '1996-10-03' AND amount <= 500;
+
+Select salespeople from London or Barcelona:
+
+-> SELECT * FROM salespeople WHERE city IN ('London', 'Barcelona');
+
+Select orders with amount between 1000 and 2000:
+
+-> SELECT * FROM orders WHERE amount BETWEEN 1000 AND 2000;
+
+Select orders with amount less than or equal to 500:
+
+-> SELECT * FROM orders WHERE amount <= 500;
+
+  *************************  UPDATE QUERIES:  ****************************
+
+Decrease commission by 0.02 for salespeople with commission greater than 0.1:
+
+--> UPDATE salespeople SET commission = commission - 0.02 WHERE commission > 0.1;
+
+Change the city to 'New York' for customers with a rating greater than 200:
+
+--> UPDATE customers SET city = 'New York' WHERE rating > 200;
+
+Increase order amount by 10% for orders placed on October 3rd, 1996:
+
+--> UPDATE orders SET amount = amount * 1.10 WHERE order_date = '1996-10-03';
+
+Update salesperson name to 'New Name' for salesperson with SNUM 1001:
+
+--> UPDATE salespeople SET salesperson_name = 'New Name' WHERE salesperson_id = 1001;
+
+
+ **********************  DELETE QUERIES:  ****************************
+
+Delete all customers with a rating less than 200:
+
+--> DELETE FROM customers WHERE rating < 200;
+
+Delete orders with amount less than 100:
+
+--> DELETE FROM orders WHERE amount < 100;
+
+Delete salespeople with commission less than 0.1:
+
+--> DELETE FROM salespeople WHERE commission < 0.1;
+
+Delete all orders placed by customer number 2008:
+
+--> DELETE FROM orders WHERE customer_id = 2008;
+
+Delete all records from the customers table:
+
+--> DELETE FROM customers;
+

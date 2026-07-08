@@ -1,0 +1,94 @@
+-- Create departments table
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+-- Insert sample data into departments table
+INSERT INTO departments (department_id, department_name) VALUES
+(1, 'HR'),
+(2, 'Engineering'),
+(3, 'Marketing');
+
+-- Create employees table
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    department_id INT,
+    salary DECIMAL(10, 2),
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+
+-- Insert sample data into employees table
+INSERT INTO employees (employee_id, employee_name, department_id, salary) VALUES
+(1, 'Alice', 1, 50000),
+(2, 'Bob', 2, 60000),
+(3, 'Charlie', 2, 70000),
+(4, 'David', 3, 40000),
+(5, 'Eve', 1, 45000);
+
+-- Create audit_log table to store logs
+CREATE TABLE audit_log (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    log_message VARCHAR(255),
+    log_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert sample data into audit_log table
+INSERT INTO audit_log (log_message) VALUES
+('New employee added: Alice'),
+('New employee added: Bob'),
+('New employee added: Charlie'),
+('New employee added: David'),
+('New employee added: Eve');
+
+-- Creating views
+
+-- View: EmployeeDepartments
+CREATE VIEW EmployeeDepartments AS
+SELECT e.employee_name, d.department_name
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id;
+
+-- View: DepartmentSalaries
+CREATE VIEW DepartmentSalaries AS
+SELECT d.department_name, SUM(e.salary) AS total_salary
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+GROUP BY d.department_name;
+
+-- View: EngineeringEmployees
+CREATE VIEW EngineeringEmployees AS
+SELECT employee_name, salary
+FROM employees
+WHERE department_id = (SELECT department_id FROM departments WHERE department_name = 'Engineering');
+
+-- View: HighEarningEmployees
+CREATE VIEW HighEarningEmployees AS
+SELECT e.employee_name, e.salary, d.department_name
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+WHERE e.salary > 50000;
+
+-- View: AuditLogs
+CREATE VIEW AuditLogs AS
+SELECT log_message, log_timestamp
+FROM audit_log
+ORDER BY log_timestamp DESC;
+
+-- Querying the views
+
+-- View Employee Departments
+SELECT * FROM EmployeeDepartments;
+
+-- View Department Salaries
+SELECT * FROM DepartmentSalaries;
+
+-- View Engineering Employees
+SELECT * FROM EngineeringEmployees;
+
+-- View High Earning Employees
+SELECT * FROM HighEarningEmployees;
+
+-- View Audit Logs
+SELECT * FROM AuditLogs;

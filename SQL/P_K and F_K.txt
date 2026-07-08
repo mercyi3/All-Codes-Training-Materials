@@ -1,0 +1,56 @@
+
+-- Create departments table
+
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+-- Create employees table with a foreign key reference to departments
+
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+
+
+-- Insert data into departments table
+INSERT INTO departments (department_id, department_name) VALUES
+(1, 'HR'),
+(2, 'IT'),
+(3, 'Finance'),
+(4, 'Marketing');
+
+-- Insert data into employees table
+INSERT INTO employees (employee_id, first_name, last_name, department_id) VALUES
+(1, 'Alice', 'Smith', 1),
+(2, 'Bob', 'Johnson', 2),
+(3, 'Charlie', 'Brown', 3),
+(4, 'David', 'Davis', 4),
+(5, 'Eve', 'Miller', 2);
+
+
+
+INSERT INTO employees values(6, 'Harish', 'Raj', 5); 
+
+-- insert is not allowed in child table
+
+
+delete from departments where department_id=1; 
+-- delete is not allowed in parent table 
+
+insert into departments values(5,"Sales");
+delete from departments where department_id=5; 
+
+
+update departments set department_id=13 where department_name='Finance';
+
+--update is not allowed in parent as well as in child in specific senario
+
+
+update employees set deparment_id=45 where employee_id=4;
+
+_________________________________________________________________________________________________________________
